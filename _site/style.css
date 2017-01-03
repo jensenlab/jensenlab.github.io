@@ -166,4 +166,16 @@ p.ppl-title {
    margin-top: 0px;
 }
 
+table.tools {
+   padding: 0px;
+   margin: 0px;
+   position: center;
+}
+
+td.tools {
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 30px;
+}
+
 
