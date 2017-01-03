@@ -108,17 +108,17 @@ code {
 /* Heading formats */
 
 h1 {
-   color:  #990000;
+   color:  #0033cc;
    border-bottom-width:  thick;
    border-bottom-style:  solid;
-   border-color:  #990000;
+   border-color:  #0033cc;
 }
 
 h3 {
-   color:  #990000;
+   color:  #0033cc;
    border-bottom-width:  thick;
    border-bottom-style:  solid;
-   border-color:  #990000;
+   border-color:  #0033cc;
 }
 
 h4.title {
