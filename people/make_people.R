@@ -52,6 +52,8 @@ for (i in 1:n) {
 }
 
 lines %<>% append('
+  </table>
+
   <br><br>
 
   <h4>Lab Alumni</h4>
