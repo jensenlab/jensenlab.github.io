@@ -10,7 +10,7 @@ people <- tibble::tribble(
   "Kenan Jijakli", "Graduate Student", "Kenan_Jijakli.png",
   "Jeremy Kemball", "Graduate Student", "Jeremy_Kemball.png",
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
-  "Dikshant Pradhan", "Graduate Student", "Dikshant_Pradhan.png",
+  "Dikshant Pradhan", "Graduate Student", "Dikshant_Pradhan.jpg",
 #  "Brent Wu", "Lab Manager", "blank_person.png",
 
   "Joshua Au", "Undergraduate Student", "Joshua_Au.png",
