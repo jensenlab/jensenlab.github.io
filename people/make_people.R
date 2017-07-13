@@ -2,6 +2,8 @@
 library(shiny)
 library(magrittr)
 
+# website image dimensions are 160 x 213 px
+
 people <- tibble::tribble(
   ~name,          ~title,                   ~image,
   "Paul Jensen",  "Principal Investigator", "Paul_Jensen.jpg",
@@ -11,7 +13,7 @@ people <- tibble::tribble(
   "Jeremy Kemball", "Graduate Student", "Jeremy_Kemball.png",
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
   "Dikshant Pradhan", "Graduate Student", "Dikshant_Pradhan.png",
-#  "Brent Wu", "Lab Manager", "blank_person.png",
+  "Brent Wu", "Lab Manager", "Brent_Wu.png",
 
   "Joshua Au", "Undergraduate Student", "Joshua_Au.png",
   "Thomas Keaty", "Undergraduate Student", "Thomas_Keaty.png",
