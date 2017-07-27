@@ -8,7 +8,6 @@ people <- tibble::tribble(
   ~name,          ~title,                   ~image,
   "Paul Jensen",  "Principal Investigator", "Paul_Jensen.jpg",
   
-  "Audra Storm",  "Lab Manager", "Audra_Storm.png",
   "Kenan Jijakli", "Graduate Student", "Kenan_Jijakli.png",
   "Jeremy Kemball", "Graduate Student", "Jeremy_Kemball.png",
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
@@ -61,6 +60,7 @@ lines %<>% append('
   <h4>Lab Alumni</h4>
 	<ul>
     <li>Megan Griebel, Lab Technician (2016). Graduate student at Boston Univ. BME.</li>
+    <li>Audra Storm, Lab Manager (2016-2017). Medical student at Southern Illinois Univ.</li>
   </ul>
                   
 </div>
