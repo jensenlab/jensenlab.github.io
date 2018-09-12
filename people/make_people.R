@@ -55,24 +55,24 @@ lines %<>% append('
 
   <h4>Lab Alumni</h4>
 	<ul>
-    <li>Graduate Students
+    <li><i>Graduate Students</i>
     <ul>
-      <li>Jeremy Kemball. Data Scientist.</li>
+      <li>Jeremy Kemball (Data Scientist)</li>
     </ul>
     </li>
 
-    <li>Undergraduate Students
+    <li><i>Undergraduate Students</i>
     <ul>
-      <li>Garrett Chou, Undergraduate Student. Engineer at Fellowes.</li>
-      <li>Caroline Blassick, Undergraduate Student. Graduate student at Boston Univ. BME.</li>
+      <li>Garrett Chou (Engineer at Fellowes)</li>
+      <li>Caroline Blassick (Graduate student at Boston Univ. BME)</li>
     </ul>
     </li>
 
-    <li>Technicians
+    <li><i>Technicians</i>
     <ul>
-      <li>Brent Wu, Lab Manager. Medical student at St. Louis Univ.</li>
-      <li>Megan Griebel, Lab Technician. Graduate student at Boston Univ. BME.</li>
-      <li>Audra Storm, Lab Manager. Medical student at Southern Illinois Univ.</li>
+      <li>Brent Wu (Medical student at St. Louis Univ.)</li>
+      <li>Megan Griebel (Graduate student at Boston Univ. BME)</li>
+      <li>Audra Storm (Medical student at Southern Illinois Univ.)</li>
     </ul>
     </li>
   </ul>
