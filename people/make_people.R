@@ -9,20 +9,15 @@ people <- tibble::tribble(
   "Paul Jensen",  "Principal Investigator", "Paul_Jensen.jpg",
   
   "Kenan Jijakli", "Graduate Student", "Kenan_Jijakli.png",
-  "Jeremy Kemball", "Graduate Student", "Jeremy_Kemball.png",
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
   "Dikshant Pradhan", "Graduate Student", "Dikshant_Pradhan.png",
-  "Brent Wu", "Lab Manager", "Brent_Wu.png",
 
   "Joshua Au", "Undergraduate Student", "Joshua_Au.png",
   "Thomas Keaty", "Undergraduate Student", "Thomas_Keaty.png",
   "Mia Sales", "Undergraduate Student", "Mia_Sales.png",
-  "Caroline Blassick", "Undergraduate Student", "Caroline_Blassick.png",
-  "Garrett Chou", "Undergraduate Student", "Garrett_Chou.png",
   "William Herbert", "Undergraduate Student", "Will_Herbert.png",
   "Matthew Tang", "Undergraduate Student", "Matthew_Tang.png",
-  "Adam Dama", "Undergraduate Student", "Adam_Dama.png",
-  "Akash Mukherhee", "Undergraduate Student", "Akash_Mukherjee.png"
+  "Adam Dama", "Undergraduate Student", "Adam_Dama.png"
 )
 
 width <- 3
@@ -60,8 +55,26 @@ lines %<>% append('
 
   <h4>Lab Alumni</h4>
 	<ul>
-    <li>Megan Griebel, Lab Technician (2016). Graduate student at Boston Univ. BME.</li>
-    <li>Audra Storm, Lab Manager (2016-2017). Medical student at Southern Illinois Univ.</li>
+    <li>Graduate Students
+    <ul>
+      <li>Jeremy Kemball. Data Scientist.</li>
+    </ul>
+    </li>
+
+    <li>Undergraduate Students
+    <ul>
+      <li>Garrett Chou, Undergraduate Student. Engineer at Fellowes.</li>
+      <li>Caroline Blassick, Undergraduate Student. Graduate student at Boston Univ. BME.</li>
+    </ul>
+    </li>
+
+    <li>Technicians
+    <ul>
+      <li>Brent Wu, Lab Manager. Medical student at St. Louis Univ.</li>
+      <li>Megan Griebel, Lab Technician. Graduate student at Boston Univ. BME.</li>
+      <li>Audra Storm, Lab Manager. Medical student at Southern Illinois Univ.</li>
+    </ul>
+    </li>
   </ul>
                   
 </div>
