@@ -23,7 +23,7 @@ people <- tibble::tribble(
 width <- 3
 n <- nrow(people)
 j <- 1
-lines <- '---\nlayout: default\n---\n\n<div class="main">\n<table class="ppl">\n'
+lines <- '---\nlayout: default\n---\n\n<div class="main">\n<h2>People</h2>\n<table class="ppl">\n'
 for (i in 1:n) {
   if (j == 1) {
     img_lines <- "<tr>"

@@ -48,6 +48,7 @@ div.header {
 }
 
 div.main {
+   clear: both;
    width: 680px;
    margin: 0px;
    padding: 10px;
@@ -108,10 +109,17 @@ code {
 /* Heading formats */
 
 h1 {
-   color:  #0033cc;
-   border-bottom-width:  thick;
+   color:  #000000;
+   border-bottom-width:  3px;
    border-bottom-style:  solid;
-   border-color:  #0033cc;
+   border-color:  #000000;
+}
+
+h2 {
+   color:  #000000;
+   border-bottom-width:  3px;
+   border-bottom-style:  solid;
+   border-color:  #000000;
 }
 
 h3 {
