@@ -18,7 +18,8 @@ people <- tibble::tribble(
   "William Herbert", "Undergraduate Student", "Will_Herbert.png",
   "Matthew Tang", "Undergraduate Student", "Matthew_Tang.png",
   "Adam Dama", "Undergraduate Student", "Adam_Dama.png",
-  "Deepthi Suresh", "Undergraduate Student", "Deepthi_Suresh.png"
+  "Deepthi Suresh", "Undergraduate Student", "Deepthi_Suresh.png",
+  "Soham Saha", "Undergraduate Student", "Soham_Saha.png"
 )
 
 width <- 3
