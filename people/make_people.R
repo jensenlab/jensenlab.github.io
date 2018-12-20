@@ -59,7 +59,7 @@ lines %<>% append('
 	<ul>
     <li><i>Graduate Students</i>
     <ul>
-      <li>Jeremy Kemball (Data Scientist)</li>
+      <li>Jeremy Kemball (Bioinformatics Research Scientist, Air Force Research Lab)</li>
     </ul>
     </li>
 
@@ -72,6 +72,7 @@ lines %<>% append('
 
     <li><i>Technicians</i>
     <ul>
+      <li>Zach Quicksall (Informatics Specialist at Mayo Clinic)</li>
       <li>Brent Wu (Medical student at St. Louis Univ.)</li>
       <li>Megan Griebel (Graduate student at Boston Univ. BME)</li>
       <li>Audra Storm (Medical student at Southern Illinois Univ.)</li>
