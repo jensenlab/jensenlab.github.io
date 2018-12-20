@@ -59,7 +59,7 @@ lines %<>% append('
 	<ul>
     <li><i>Graduate Students</i>
     <ul>
-      <li>Jeremy Kemball (Bioinformatics Research Scientist, Air Force Research Lab)</li>
+      <li>Jeremy Kemball (Bioinformatics Research Scientist at Air Force Research Laboratory)</li>
     </ul>
     </li>
 
