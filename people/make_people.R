@@ -12,6 +12,8 @@ people <- tibble::tribble(
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
   "Dikshant Pradhan", "Graduate Student", "Dikshant_Pradhan.png",
 
+  "Walden Li", "Lab Technician", "Walden_Li.png",
+  
   "Joshua Au", "Undergraduate Student", "Joshua_Au.png",
   "Thomas Keaty", "Undergraduate Student", "Thomas_Keaty.png",
   "Mia Sales", "Undergraduate Student", "Mia_Sales.png",
