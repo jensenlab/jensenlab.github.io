@@ -57,30 +57,25 @@ lines %<>% append('
 
   <br><br>
 
-  <h4>Lab Alumni</h4>
-	<ul>
-    <li><i>Graduate Students</i>
+  <h2>Alumni</h2>
+    <h4>Graduate Students</h4>
     <ul>
       <li>Jeremy Kemball (Bioinformatics Research Scientist at Air Force Research Laboratory)</li>
     </ul>
-    </li>
 
-    <li><i>Undergraduate Students</i>
+    <h4>Undergraduate Students</h4>
     <ul>
       <li>Garrett Chou (Engineer at Fellowes)</li>
       <li>Caroline Blassick (Graduate student at Boston Univ. BME)</li>
     </ul>
-    </li>
 
-    <li><i>Technicians</i>
+    <h4>Technicians</h4>
     <ul>
       <li>Zach Quicksall (Informatics Specialist at Mayo Clinic)</li>
       <li>Brent Wu (Medical student at St. Louis Univ.)</li>
       <li>Megan Griebel (Graduate student at Boston Univ. BME)</li>
       <li>Audra Storm (Medical student at Southern Illinois Univ.)</li>
     </ul>
-    </li>
-  </ul>
                   
 </div>
 ')
