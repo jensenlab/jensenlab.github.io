@@ -10,17 +10,10 @@ people <- tibble::tribble(
   
   "Kenan Jijakli", "Graduate Student", "Kenan_Jijakli.png",
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
-  "Dikshant Pradhan", "Graduate Student", "Dikshant_Pradhan.png",
-
   "Walden Li", "Lab Technician", "Walden_Li.png",
+  "Adam Dama", "Data Scientist", "Adam_Dama.png",
+  "Deepthi Suresh", "Graduate Student", "Deepthi_Suresh.png",
   
-  "Joshua Au", "Undergraduate Student", "Joshua_Au.png",
-  "Thomas Keaty", "Undergraduate Student", "Thomas_Keaty.png",
-  "Mia Sales", "Undergraduate Student", "Mia_Sales.png",
-  "William Herbert", "Undergraduate Student", "Will_Herbert.png",
-  "Matthew Tang", "Undergraduate Student", "Matthew_Tang.png",
-  "Adam Dama", "Undergraduate Student", "Adam_Dama.png",
-  "Deepthi Suresh", "Undergraduate Student", "Deepthi_Suresh.png",
   "Soham Saha", "Undergraduate Student", "Soham_Saha.png"
 )
 
@@ -60,20 +53,26 @@ lines %<>% append('
   <h2>Alumni</h2>
     <h4>Graduate Students</h4>
     <ul>
+      <li>Dikshant Pradhan (Bioinformaticist at Koch Institute, MIT)</li>
       <li>Jeremy Kemball (Bioinformatics Research Scientist at Air Force Research Laboratory)</li>
     </ul>
 
     <h4>Undergraduate Students</h4>
     <ul>
+      <li>William Herbert (Grad student at Mayo Clinic BME)</li>
+      <li>Matthew Tang (Engineer at Google)</li>
+      <li>Thomas Keaty (Technical Problem Solver at Epic Systems)</li>
+      <li>Joshua Au (Trainee at FTTA)</li>
+      <li>Mia Sales (Grad student at UCSD Bioinf. & Comp. Bio)</li>
       <li>Garrett Chou (Engineer at Fellowes)</li>
-      <li>Caroline Blassick (Graduate student at Boston Univ. BME)</li>
+      <li>Caroline Blassick (Grad student at Boston Univ. BME)</li>
     </ul>
 
     <h4>Technicians</h4>
     <ul>
       <li>Zach Quicksall (Informatics Specialist at Mayo Clinic)</li>
       <li>Brent Wu (Medical student at St. Louis Univ.)</li>
-      <li>Megan Griebel (Graduate student at Boston Univ. BME)</li>
+      <li>Megan Griebel (Grad student at Boston Univ. BME)</li>
       <li>Audra Storm (Medical student at Southern Illinois Univ.)</li>
     </ul>
                   
