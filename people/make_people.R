@@ -10,7 +10,7 @@ people <- tibble::tribble(
   
   "Kenan Jijakli", "Graduate Student", "Kenan_Jijakli.png",
   "Ryan Wyllie", "Graduate Student", "Ryan_Wyllie.png",
-  "Walden Li", "Lab Technician", "Walden_Li.png",
+  "Walden Li", "Graduate Student", "Walden_Li.png",
   "Adam Dama", "Data Scientist", "Adam_Dama.png",
   "Deepthi Suresh", "Graduate Student", "Deepthi_Suresh.png",
   
@@ -60,6 +60,7 @@ lines %<>% append('
 
     <h4>Undergraduate Students</h4>
     <ul>
+      <li>Noah Schmid (Grad student at Illinois BIOE)</li>
       <li>William Herbert (Grad student at Mayo Clinic BME)</li>
       <li>Matthew Tang (Engineer at Google)</li>
       <li>Thomas Keaty (Technical Problem Solver at Epic Systems)</li>
