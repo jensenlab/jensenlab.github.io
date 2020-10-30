@@ -159,13 +159,21 @@ table.ppl {
 
 td.ppl-image {
    padding-top: 40px;
-   padding-left: 20px;
+   padding-left: 0px;
    padding-right: 20px;
+   vertical-align: top;
+}
+
+td.ppl-bio {
+   padding-top: 40px;
+   padding-left: 20px;
+   padding-right: 0px;
+   vertical-align: top;
 }
 
 td.ppl-title {
-   padding-left: 20px;
-   padding-right: 20px;
+   padding-left: 0px;
+   padding-right: 0px;
 }
 
 p.ppl-title {
@@ -185,5 +193,3 @@ td.tools {
    padding-right: 20px;
    padding-top: 30px;
 }
-
-
