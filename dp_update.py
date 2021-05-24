@@ -12,3 +12,6 @@ with open('index_raw.html') as f:
 
 with open('index.html', 'w') as f:
 	f.write(s)
+
+print("Experiments:", count_str)
+
