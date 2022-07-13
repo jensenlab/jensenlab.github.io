@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Jensen Lab @ UIUC</title>
+    <title>The Jensen Lab @ Illinois</title>
     <description>The Jensen Lab at the University of Illinois Urbana-Champaign
 </description>
     <link>http://jensenlab.net/</link>
     <atom:link href="http://jensenlab.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jul 2022 08:32:56 -0500</pubDate>
-    <lastBuildDate>Wed, 13 Jul 2022 08:32:56 -0500</lastBuildDate>
+    <pubDate>Wed, 13 Jul 2022 08:38:52 -0500</pubDate>
+    <lastBuildDate>Wed, 13 Jul 2022 08:38:52 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
