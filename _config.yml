@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: The Jensen Lab @ Illinois
+title: The Jensen Lab @ Michigan
 email: manager@jensenlab.net
 description: > # this means to ignore newlines until "baseurl:"
-  The Jensen Lab at the University of Illinois Urbana-Champaign
+  The Jensen Lab at the University of Michigan
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://jensenlab.net" # the base hostname & protocol for your site
 twitter_username: jensen_lab
