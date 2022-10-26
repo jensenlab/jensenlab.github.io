@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Jensen Lab @ Illinois</title>
-    <description>The Jensen Lab at the University of Illinois Urbana-Champaign
+    <title>The Jensen Lab @ Michigan</title>
+    <description>The Jensen Lab at the University of Michigan
 </description>
     <link>http://jensenlab.net/</link>
     <atom:link href="http://jensenlab.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jul 2022 14:41:39 -0500</pubDate>
-    <lastBuildDate>Wed, 13 Jul 2022 14:41:39 -0500</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2022 14:45:18 -0400</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2022 14:45:18 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -27,7 +27,7 @@
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Fri, 26 Aug 2016 13:39:56 -0500</pubDate>
+        <pubDate>Fri, 26 Aug 2016 14:39:56 -0400</pubDate>
         <link>http://jensenlab.net/jekyll/update/2016/08/26/welcome-to-jekyll.html</link>
         <guid isPermaLink="true">http://jensenlab.net/jekyll/update/2016/08/26/welcome-to-jekyll.html</guid>
         
