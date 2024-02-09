@@ -73,7 +73,7 @@ title: Automated Science | The Jensen Lab
     Questions, comments, suggestions, and corrections are appreciated.</p>
 
   <ol>
-    <li><b>Introduction</b> <a href="1_Introduction.pdf">[slides]</a>
+    <li><b>Introduction</b> <a href="slas2024/1_Introduction.pdf">[slides]</a>
       <ul>
         <li>Lab automation vs. automated science
         <li>The automated science cycle
@@ -88,13 +88,13 @@ title: Automated Science | The Jensen Lab
       <i>Nature Microbiology</i>. 2023; 8:1018-1025. <a href="https://www.nature.com/articles/s41564-023-01376-0">[link]</a>
           </ul>
       </ul>
-    <li><b>Planning -- Exploiting</b> <a href="2_Planning1.pdf">[slides]</a>
+    <li><b>Planning -- Exploiting</b> <a href="slas2024/2_Planning1.pdf">[slides]</a>
       <ul>
         <li>Initial designs
         <li>Searching for next runs
         <li>Sequential optimization
       </ul>
-    <li><b>Models</b> <a href="3_Models.pdf">[slides]</a>
+    <li><b>Models</b> <a href="slas2024/3_Models.pdf">[slides]</a>
       <ul>
         <li>Mechanistic vs. black-box
         <li>Fixed parameter vs. Bayesian
@@ -102,20 +102,70 @@ title: Automated Science | The Jensen Lab
         <li>Bagging
         <li>Calibration vs. accuracy
       </ul>
-    <li><b>Planning -- Exploring</b> <a href="4_Planning2.pdf">[slides]</a>
+    <li><b>Planning -- Exploring</b> <a href="slas2024/4_Planning2.pdf">[slides]</a>
       <ul>
         <li>Sequential model improvement
         <li>Explore vs. exploit tradeoffs
         <li>Expected improvement
         <li>Optimality of sequential designs
       </ul>
-    <li><b>Putting it all together</b> <a href="5_Running.pdf">[slides]</a>
+    <li><b>Putting it all together</b> <a href="slas2024/5_Running.pdf">[slides]</a>
       <ul>
         <li>Batched experiments
         <li>Automation challenges
         <li>The automated science checklist
       </ul>
   </ol>
+
+  Slides from a previous course at SLAS 2023:
+  <ol>
+    <li><b>Introduction</b> <a href="slas2023/1_Introduction.pdf">[slides]</a>
+    <li><b>Planning -- Exploiting</b> <a href="slas2023/2_Planning1.pdf">[slides]</a>
+    <li><b>Models</b> <a href="slas2023/3_Models.pdf">[slides]</a>
+    <li><b>Planning -- Exploring</b> <a href="slas2023/4_Planning2.pdf">[slides]</a>
+    <li><b>Putting it all together</b> <a href="slas2023/5_Running.pdf">[slides]</a>
+  </ol>
+
+<h2>Suggested Reading</h2>
+
+  <h4>Bayesian optimization (modeling & policies)</h4>
+    <ul>
+      <li><b><i>Surrogates</i> by Robert Grammacy.</b> A statistically-oriented
+        tutorial of surrogate modeling, including space-filling designs and
+        optimization. The practical, conversational style includes R code for every
+        figure. Grammacy connects Bayesian optimization with DOE/RSM techniques to show
+        applications in process improvement. <a href="https://bobby.gramacy.com/surrogates/">[Website]</a>
+      <li><b><i>Bayesian Optimization</i> by Roman Garnett.</b> A comprehensive treatment
+        of Gaussian Processes and Bayesian policies. More theoretical than other books, great
+        for those wanting a mathematically-rigorous reference. <a href="https://bayesoptbook.com">[Website]</a>
+      <li><b><i>Bayesian Optimization in Action</i> by Quan Nguyen.</b> A guided
+        tutorial of Gaussian Process modeling and Bayesian optimization policies.
+        A good starting point for implementing these approaches in Python
+        (GPyTorch/BoTorch). <a href="https://www.manning.com/books/bayesian-optimization-in-action">[Publisher]</a>
+      <li><b><i>The Design and Analysis of Computer Experiments</i> by Satner,
+        Williams, & Notz.</b> This is a classic refernce on Bayesian optimization,
+        primarily for surrogate modeling of computer simulations. Readers interested
+        in wet-lab experiments may need to translate some of the techniques. <a href="https://link.springer.com/book/10.1007/978-1-4757-3799-8">[Publisher]</a>
+      <li><b><i>Experiments</i> by Wu & Hamada.</b> Chapter 14 is a brief introduction
+        to Bayesian optimization
+        for those coming from a DOE/RSM background. <a href="https://www.wiley.com/en-us/Experiments%3A+Planning%2C+Analysis%2C+and+Optimization%2C+3rd+Edition-p-9781119470120">[Publisher]</a>
+    </ul>
+
+    <h4>Bayesian modeling</h4>
+      <ul>
+        <li><b><i>Hands-on Bayesian Neural Networks -- A Tutorial for Deep Learning Users</i> by Jospin, et al.</b>
+          A comprehensive review of Bayesian neural networks, including an appendix with Python code.
+          <a href="https://arxiv.org/abs/2007.06823">[arXiv]</a>
+        <li><b><i>Variational Methods for Machine Learning with Applications to Deep Networks</i>
+          by Cinelli, et al.</b> Shows how Variational Inference (VI) can be
+          used to convert traditional deep neural networks into Bayesian models.
+          <a href="https://link.springer.com/book/10.1007/978-3-030-70679-1">[Publisher]</a>
+        <li><b><i>Probabilistic Machine Learning: Advanced Topics</i> by Murphy.</b>
+          A series of reference books on machine learning with a probabilistic view.
+          Topics in Book 2 include Bayesian neural networks (chapter 17), Gaussian processes (chapter 18),
+          and policies (chapter 34). Python code included for each example.
+          <a href="https://probml.github.io/pml-book/">[GitHub]</a>
+      </ul>
 
 <h2>Other Resources</h2>
 
