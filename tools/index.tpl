@@ -1,0 +1,115 @@
+<html>
+
+<head>
+	<link href='/main.css' rel='stylesheet'/>
+  	<% include ../analytics.html %>
+	<title>Jensen Lab: Tools & Data</title>
+</head>
+
+<body>
+
+<% include ../navigation.html %>
+
+<div class="wrap main">
+
+<h1>Tools, Software, and Data</h1>
+
+<h2>BacterAI</h2>
+  <center><img src="/img/bacterai_logo.png" width=350px></center>
+
+  <ul>
+    <li>Read the BacterAI paper <a href="https://www.nature.com/articles/s41564-023-01376-0">here</a>.
+    <li>Check out our lab's <a href="/automation">automation hardware</a>.
+    <li>Code is available on our <a href="https://github.com/jensenlab/BacterAI/">GitHub page</a>.
+    <li><a href="https://github.com/jensenlab/BacterAI/tree/master/published_data">Download</a> growth data for all experiments in the paper.
+  </ul>
+  <br><br>
+
+  <h2>Web Tools</h2>
+
+	<table class="ppl">
+		<tr class="tools">
+			<td class="ppl-image">
+				<a href=http://jensenlab.shinyapps.io/cutfree>
+					<img src="/img/tools/cutfree.png" width=250px>
+				</a>
+			</td>
+			<td class="ppl-bio">
+				<a href=http://jensenlab.shinyapps.io/cutfree>
+					<h3>CutFree</h3>
+				</a>
+				Design pools of DNA barcodes compatible with restriction enzymes. <a href=http://jensenlab.shinyapps.io/cutfree>[website]</a> <a href="http://github.com/jensenlab/cutfree">[code]</a>
+			</td>
+		</tr>
+
+		<tr class="tools">
+			<td class="ppl-image">
+				<a href=http://jensenlab.shinyapps.io/primerliner>
+					<img src="/img/tools/primerliner.png" width=250px>
+				</a>
+			</td>
+			<td class="ppl-bio">
+				<a href=http://jensenlab.shinyapps.io/primerliner>
+					<h3>PrimerLiner</h3>
+				</a>
+				Quickly check alignment of primers and oligonucleotides. <a href=http://jensenlab.shinyapps.io/primerliner>[website]</a> <a href="http://github.com/jensenlab/primerliner">[code]</a>
+			</td>
+		</tr>
+
+    <tr class="tools">
+			<td class="ppl-image">
+				<a href=http://jensenlab.shinyapps.io/enzymekinetics>
+					<img src="/img/tools/enzymekinetics.png" width=250px>
+				</a>
+			</td>
+			<td class="ppl-bio">
+				<a href=https://jensenlab.shinyapps.io/enzymekinetics>
+					<h3>Enzyme Kinetics</h3>
+				</a>
+				Interactively fit enzyme kinetics data. <a href=http://jensenlab.shinyapps.io/enzymekinetics>[website]</a>
+			</td>
+		</tr>
+
+		<tr class="tools">
+			<td class="ppl-image">
+				<a href=http://jensenlab.shinyapps.io/eduseq>
+					<img src="/img/tools/eduseq.jpg" width=250px>
+				</a>
+			</td>
+			<td class="ppl-bio">
+				<a href=https://jensenlab.shinyapps.io/eduseq>
+					<h3>EduSeq</h3>
+				</a>
+				Create hand-on lessons for learning DNA assembly. <a href=http://jensenlab.shinyapps.io/eduseq>[website]</a> <a href="http://www.asmscience.org/content/journal/jmbe/10.1128/jmbe.v18i2.1295">[paper]</a>
+			</td>
+		</tr>
+	</table>
+
+  <br><br>
+  <h2>Data & Code</h2>
+  <ul class="publist">
+    <li><b>OligoRL:</b> A reinforcement learning framework for pooled oligonucleotide design. (David 2021)
+      <ul>
+        <li><a href="http://github.com/bmdavid2/OligoRL">Julia code (GitHub)</a>
+      </ul>
+    </li><br>
+    <li><b>gapsplit:</b> Efficient random sampling for COBRA models. (Keaty 2019)
+      <ul>
+        <li><a href="http://github.com/jensenlab/gapsplit">Matlab and Python code (GitHub)</a>
+      </ul>
+    </li><br>
+    <li><b>Cached Flux Coupling and FALCON</b> (Pradhan 2019)
+      <ul>
+        <li><a href="https://github.com/jensenlab/FluxCouplingTools">R package for cachedFCF, FALCON, and delete-and-couple</a>
+        <li><a href="https://github.com/jensenlab/FluxCouplingPy">Python package for cachedFCF</a>
+        <li><a href="https://github.com/jensenlab/Pradhan2019Analysis">R code and data for simulations and figures</a>
+      </ul>
+    </li>
+  </ul>
+
+</div>
+
+<% include ../footer.html %>
+</body>
+</html>
+

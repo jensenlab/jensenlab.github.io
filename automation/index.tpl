@@ -1,0 +1,269 @@
+<html>
+
+<head>
+	<link href='/main.css' rel='stylesheet'/>
+  	<% include ../analytics.html %>
+	<title>Jensen Lab: Automation</title>
+</head>
+
+<body>
+
+<% include ../navigation.html %>
+
+<div class="wrap article">
+<h1>Automation Hardware</h1>
+
+<p>Our lab uses state-of-the-art hardware to tackle large and complex biological
+problems. Our current automation system includes the following instruments.</p>
+
+<h2>Measurement & Detection</h2>
+
+<table class="ppl">
+<tr>
+<td class="ppl-image"><img src="/img/automation/cytation10.png" width=200px></td>
+<td class="ppl-bio"><b>Cytation 10 Automated Microscope/Multimode Plate Reader</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>20x-40x confocal imaging (60 um spinning disk)
+<li>4x-40x phase contrast imaging
+<li>1.25x-40x brightfield imaging
+<li>Sony CMOS, 16-bit grayscale camera
+<li>6- to 1536-well plate reading
+<li>monochromator fluorescence (variable bandwidth)
+<li>filter-dichroic fluorescence
+<li>monochromator UV-Vis absorbance
+<li>luminescence
+<li>aerobic & anaerobic incubation
+<li>dual reagent injectors
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/cytation5.jpg" width=200px></td>
+<td class="ppl-bio"><b>Cytation 5 Multimode Plate Reader</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>6- to 1536-well plate reading
+<li>monochromator fluorescence (variable bandwidth)
+<li>filter-dichroic fluorescence
+<li>monochromator UV-Vis absorbance
+<li>luminescence
+<li>aerobic & anaerobic incubation
+<li>dual reagent injectors
+<li>pH-XTRA glycolysis module
+</ul>
+</td>
+</tr>
+
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/synergy.png" width=200px></td>
+<td class="ppl-bio"><b>Synergy H1 Multimode Plate Reader (x2)</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>6- to 384-well plate reading
+<li>monochromator fluorescence (variable bandwidth)
+<li>monochromator UV-Vis absorbance
+<li>luminescence
+<li>temperature control
+<li>linear, orbital, and double orbital shaking
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/epoch2.jpg" width=200px></td>
+<td class="ppl-bio"><b>Epoch 2 Plate Reader (x3)</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>monochromator UV-Vis absorbance
+<li>6- to 384-well plate reading
+<li>incubation and shaking
+<li>automation compatible
+</ul>
+</td>
+</tr>
+</table>
+
+<h2>Liquid Handling</h2>
+
+<table class="ppl">
+<tr>
+<td class="ppl-image"><img src="/img/automation/tempest.png" width=200px></td>
+<td class="ppl-bio"><b>Tempest Liquid Handler (x2)</b> <p class="ppl-title">Formulatrix</p>
+<ul>
+<li>48 independent dispense nozzles
+<li>6 reagent capacity
+<li>0.2 - 5.0 ul dispense range
+<li>automated plate stackers (25 plate capacity)
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/mantis.jpg" width=200px></td>
+<td class="ppl-bio"><b>Mantis Liquid Handler with LC3</b> <p class="ppl-title">Formulatrix</p>
+<ul>
+<li>28 reagent capacity
+<li>0.1 - 5.0 ul dispense range
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/cobra.png" width=200px></td>
+<td class="ppl-bio"><b>Cobra Nano Dispenser</b> <p class="ppl-title">Hudson Robotics</p>
+<ul>
+<li>0.2-100 uL aspiration
+<li>non-contact dispensing
+<li>2 plate positions
+<li>on-deck tip cleaning
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/nimbus.png" width=200px></td>
+<td class="ppl-bio"><b>Nimbus Liquid Handler</b> <p class="ppl-title">Hamilton</p>
+<ul>
+<li>8 deck positions
+<li>4 head spanning pipettor
+<li>plate gripper
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/multiflo.jpg" width=200px></td>
+<td class="ppl-bio"><b>MultiFlo FX Multimode Washer/Dispenser</b> <p class="ppl-title">BioTek</p>
+<ul>
+<li>2 peristaltic pumps
+<li>2 syringe pumps
+<li>Random Access Dispense (RAD) module
+<li>Automated Media Exchange (AMX) module
+<li>Wash module for magnetic bead purification
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/ot2.jpg" width=200px></td>
+<td class="ppl-bio"><b>OT-2 Liquid Handler (x2)</b> <p class="ppl-title">OpenTrons</p>
+<ul>
+<li>programmable aspiration and dispensing
+<li>single and 8-channel pipette heads
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/platemaster.png" width=200px></td>
+<td class="ppl-bio"><b>Platemaster 96-Channel Pipette (x3)</b> <p class="ppl-title">Gilson</p>
+<ul>
+<li>2-220 uL capacity
+<li>96 or 384 well plate formats
+<li>4 deck positions
+</ul>
+</td>
+</tr>
+</table>
+
+<h2>Movement & Incubation</h2>
+
+<table class="ppl">
+<tr>
+<td class="ppl-image"><img src="/img/automation/biospa.jpeg" width=200px></td>
+<td class="ppl-bio"><b>BioSpa 8 Robotic Incubator (x2)</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>8 plate capacity
+<li>temperature, CO<sub>2</sub>, and O<sub>2</sub> control
+<li>integrates with the Cytation 10, 5, Synergy Neo, and Epoch plate readers
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/biostack.jpg" width=200px></td>
+<td class="ppl-bio"><b>BioStack 2WR Plate Handler (x2)</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>50 plate capacity
+<li>30 second plate change time
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/platecrane.jpg" width=200px></td>
+<td class="ppl-bio"><b>PlateCrane EX Robotic Arm (x2)</b> <p class="ppl-title">Hudson Robotics</p>
+<ul>
+<li>345&deg; travel
+<li>18" horizontal reach
+<li>removable plate stacks
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/rapidpick.jpg" width=200px></td>
+<td class="ppl-bio"><b>RapidPick SP Colony Picker</b> <p class="ppl-title">Hudson Robotics</p>
+<ul>
+<li>single pin with sterilization
+<li>up to 400 colonies/hour
+<li>plate re-arraying
+</ul>
+</td>
+</tr>
+</table>
+
+<h2>Molecular Biology</h2>
+
+<table class="ppl">
+<tr>
+<td class="ppl-image"><img src="/img/automation/quantstudio5.png" width=200px></td>
+<td class="ppl-bio"><b>QuantStudio 5 Real-Time PCR System</b> <p class="ppl-title">Applied Biosystems</p>
+<ul>
+<li>96 well
+<li>0.2 mL labware
+<li>6 temperature zones
+<li>6 decoupled channels + white LED
+</ul>
+</td>
+</tr>
+<tr>
+<td class="ppl-image"><img src="/img/automation/proflex.png" width=200px></td>
+<td class="ppl-bio"><b>ProFlex PCR System</b> <p class="ppl-title">Applied Biosystems</p>
+<ul>
+<li>3 x 32 well
+<li>0.2 mL labware
+<li>6.0 &deg;C/s ramp rate
+</ul>
+</td>
+</tr>
+<tr>
+<td class="ppl-image"><img src="/img/automation/simpliamp.png" width=200px></td>
+<td class="ppl-bio"><b>SimpliAmp Thermocycler</b> <p class="ppl-title">Applied Biosystems</p>
+<ul>
+<li>96 well
+<li>0.2 mL labware
+<li>4.0 &deg;C/s ramp rate
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/automation/bioanalyzer.jpeg" width=200px></td>
+<td class="ppl-bio"><b>Bioanalyzer Automated Electrophoresis Instrument</b> <p class="ppl-title">Agilent</p>
+<ul>
+<li>DNA/RNA sizing
+<li>12 samples/chip
+</ul>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<% include ../footer.html %>
+
+</body>
+</html>
+
+

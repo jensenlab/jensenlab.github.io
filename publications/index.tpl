@@ -1,0 +1,321 @@
+<html>
+<head>
+  <link href='/main.css' rel='stylesheet'/>
+  <% include ../analytics.html %>
+  <title>Jensen Lab: Publications</title>
+</head>
+
+<body>
+
+<% include ../navigation.html %>
+
+<div class='front-matter'>
+  <div class='wrap'>
+      <h1>Publications</h1>
+  </div>
+</div>
+<div class='wrap article'>
+	<ul class="publist">
+
+  <li class="pub">
+	<p class="authors">Jensen PA, Al Habib S, Baker S, Bernstein D, David BM, DeBenedictis E, Eisen JA, Fitch L, Hoarfrost A, Knight-Connonni V, Koblitz J, Mahadevan R, Milshteyn S, Nattermann U, Reimer LC, Stork D, Surae S, Winnifrith A, Wood-Charlson EM, Kelly P</p>
+	<p class="pubtitle">Genotype to Phenotype: Design of an Extensible Experimental Platform for Characterizing Microbes</p>
+	<p class="journal"><i>Zenodo</i>. 2025; 10.1038/s41564-023-01376-0.</p>
+	<p class="links"><a href="https://zenodo.org/records/14990500">Article</a>
+	</p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Herbert HG, Chia N, Jensen PA, Walther-Antonio MRS</p>
+    <p class="pubtitle">Monotherapy cancer drug-blind response prediction is limited to intraclass generalization.</p>
+    <p class="journal"><i>bioRxiv</i>. 2025; 10.1101/2025.06.16.659838v1.</p>
+    <p class="links">
+      <a href="https://www.biorxiv.org/content/10.1101/2025.06.16.659838v1">Preprint</a>
+    </p>
+  </li>
+
+	<li class="pub">
+	  <p class="authors">Jensen PA</p>
+		<p class="pubtitle">Ten species comprise half of the bacteriology literature, leaving most species unstudied.</p>
+		<p class="journal"><i>bioRxiv</i>. 2025; 10.1101/2025.01.04.631297v1.</p>
+		<p class="links">
+		  <a href="https://www.biorxiv.org/content/10.1101/2025.01.04.631297v1">Preprint</a> |
+		  <a href="https://github.com/pauljensen/BacteriaBibliometrics">GitHub</a> |
+		  <a href="https://www.nature.com/articles/d41586-025-00038-x">Nature News & Views</a>
+		</p>
+	</li>
+
+  <li class="pub">
+    <p class="authors">Wyllie RM, Jensen PA</p>
+    <p class="pubtitle">The MutRS quorum sensing system controls lantibiotic mutacin production in the human pathogen <i>Streptococcus mutans</i>.</p>
+	  <p class="journal"><i>PNAS</i>. 2025, 122 (7) e2421164122.</p>
+	  <p class="links">
+	    <a href="https://pubmed.ncbi.nlm.nih.gov/39946531/">PubMed</a> |
+	    <a href="https://www.pnas.org/doi/10.1073/pnas.2421164122">Journal</a>
+
+	  </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Richardson JD, Guo E, Wyllie RM, Jensen PA, Dawid S</p>
+	  <p class="pubtitle">The pneumococcal bacteriocin streptococcin B is produced as part of the early competence cascade and promotes intraspecies competition.</p>
+	  <p class="journal"><i>mBio</i>. 2025, 16:e02993-24.</p>
+	  <p class="links">
+	    <a href="https://pubmed.ncbi.nlm.nih.gov/39688419/">PubMed</a> |
+	    <a href="https://journals.asm.org/doi/10.1128/mbio.02993-24">Journal</a>
+
+	  </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Suresh DE, Martin JP, Lunkes A, Jensen PA</p>
+	  <p class="pubtitle">Modeling career paths in biomedical quality engineering.</p>
+	  <p class="journal"><i>Biomedical Engineering Education</i>. 2024; 4(2), 339-359.</p>
+	  <p class="links">
+	    <a href="https://link.springer.com/article/10.1007/s43683-024-00150-w">Journal</a>
+	  </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Martin JP, Suresh DE, Jensen PA.</p>
+    <p class="pubtitle">Using collaborative autoethnography to investigate mentoring relationships for novice engineering education researchers.</p>
+    <p class="journal"><i>International Journal of STEM Education</i>. 2024; 11(1), 13.</p>
+    <p class="links">
+      <a href="https://stemeducationjournal.springeropen.com/articles/10.1186/s40594-024-00473-8">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Dama AC, Kim KS, Leyva DM, Lunkes AP, Schmid NS, Jijakli K, Jensen PA.</p>
+    <p class="pubtitle">BacterAI maps microbial metabolism without prior knowledge.</p>
+    <p class="journal"><i>Nature Microbiology</i>. 2023; 8:1018-1025.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/37142775/">PubMed</a> |
+      <a href="https://www.nature.com/articles/s41564-023-01376-0">Journal</a> |
+      <a href="https://www.nature.com/articles/s41564-023-01390-2">Nature News &amp; Views</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Li JW, Wyllie RM, Jensen PA.</p>
+    <p class="pubtitle">Crosstalk between paralogous ComRS quorum-sensing systems diversifies the competence/bacteriocin networks of oral streptococci.</p>
+    <p class="journal"><i>bioRxiv</i>. 2022; doi:10.1101/2022.10.14.512260.</p>
+    <p class="links">
+      <a href="https://www.biorxiv.org/content/10.1101/2022.10.14.512260v1">Preprint</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">David BM, Jensen PA.</p>
+    <p class="pubtitle">Improving an rRNA depletion protocol with statistical design of experiments.</p>
+    <p class="journal"><i>SLAS Technology</i>. 2023; 28:16-21.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/39692280/">PubMed</a> |
+      <a href="https://www.sciencedirect.com/science/article/pii/S2472630322051767">Journal</a>
+
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Martin JP, Suresh DE, Jensen PA.</p>
+    <p class="pubtitle">Perceptions of shared experiences in mentoring relationships: a collaborative autoethnography.</p>
+    <p class="journal"><i>2022 ASEE Annual Conference &amp; Exposition</i>.</p>
+    <p class="links">
+      <a href="https://peer.asee.org/41058">Proceedings</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">David BM, Wyllie RM, Harouaka R, Jensen PA.</p>
+    <p class="pubtitle">A reinforcement learning framework for pooled oligonucleotide design.</p>
+    <p class="journal"><i>Bioinformatics</i>. 2022; 38(8):2219-2225.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/35143615/">PubMed</a> |
+      <a href="https://doi.org/10.1093/bioinformatics/btac073">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">David BM, Li JW, Masood F, Blassick C, Jensen PA, Jensen KJ.</p>
+    <p class="pubtitle">Laboratory exercise to measure plasmid copy number by qPCR.</p>
+    <p class="journal"><i>Journal of Microbiology &amp; Biology Education</i>. 2021; 22:e00125-21.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/34594455/">PubMed</a> |
+      <a href="https://doi.org/10.1128/jmbe.00125-21">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Li W*, Wyllie RM*, Jensen PA.</p>
+    <p class="pubtitle">A novel competence pathway in the oral pathogen <i>Streptococcus sobrinus</i>.</p>
+    <p class="journal"><i>Journal of Dental Research</i>. 2021 May; 100(5):542-548.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/33876976/">PubMed</a> |
+      <a href="https://journals.sagepub.com/doi/10.1177/0022034520979150">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Keaty TC, Jensen PA.</p>
+    <p class="pubtitle">Gapsplit: Efficient random sampling for non-convex constraint-based models.</p>
+    <p class="journal"><i>Bioinformatics</i>. 2020; 36(8): 2623-2625.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/31913465/">PubMed</a> |
+      <a href="https://academic.oup.com/bioinformatics/article/36/8/2623/5698269">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Pradhan D, Papin JA, Jensen PA.</p>
+    <p class="pubtitle">Efficient enzyme coupling algorithms identify functional pathways in genome-scale metabolic models.</p>
+    <p class="journal"><i>bioRxiv</i>. 2019, doi:10.1101/608430.</p>
+    <p class="links">
+      <a href="https://www.biorxiv.org/content/10.1101/608430v1">bioRxiv</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Thibault DT, Jensen PA, Wood S, Qabar C, Clark S, Shainheit MG, Isberg RR, van Opijnen T.</p>
+    <p class="pubtitle">droplet-Tn-Seq combines microfluidics with Tn-Seq for identifying complex single-cell phenotypes.</p>
+    <p class="journal"><i>Nature Communications</i>. 2019, 10:5729.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/31844066/">PubMed</a> |
+      <a href="https://www.nature.com/articles/s41467-019-13719-9">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Blassick C, David B, Storm A, Jensen PA, Jensen KJ.</p>
+    <p class="pubtitle">Laboratory exercise to measure restriction enzyme kinetics.</p>
+    <p class="journal"><i>Journal of Microbiology &amp; Biology Education</i>. 2019, 20:3.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/31768213/">PubMed</a> |
+      <a href="https://www.asmscience.org/content/journal/jmbe/10.1128/jmbe.v20i3.1703">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jijakli K, Jensen PA.</p>
+    <p class="pubtitle">Metabolic modeling of <i>Streptococcus mutans</i> reveals complex nutrient requirements of an oral pathogen.</p>
+    <p class="journal"><i>mSystems</i>. 2019; 4:e00529-19.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/31662430/">PubMed</a> |
+      <a href="https://msystems.asm.org/content/4/5/e00529-19">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Shields RC*, Jensen PA.</p>
+    <p class="pubtitle">The bare necessities: Uncovering essential and condition-critical genes with transposon sequencing.</p>
+    <p class="journal"><i>Molecular Oral Microbiology</i>. 2019; 1-12. Review.</p>
+    <p class="links">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/30739386/">PubMed</a> |
+      <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/omi.12256">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Sales MJ, Herbert WG, Du Y, Sandur AS, Stanley NM, Jensen PA.</p>
+    <p class="pubtitle">Complete genome sequences of <i>Streptococcus sobrinus</i> SL1 (ATCC 33478 = DSM 20742), NIDR 6715-7 (ATCC 27351), NIDR 6715-15 (ATCC 27352), and NCTC 10919 (ATCC 33402).</p>
+    <p class="journal"><i>Microbiology Resource Announcements</i>. 2018, doi:10.1128/MRA.00804-18.</p>
+    <p class="links">
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/30533864">PubMed</a> |
+      <a href="https://mra.asm.org/content/7/3/e00804-18">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA.</p>
+    <p class="pubtitle">Coupling fluxes, enzymes, and regulation in genome-scale metabolic models.</p>
+    <p class="journal"><i>Methods in Molecular Biology</i>. 2018; 1716:337-351. Review.</p>
+    <p class="links">
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/29222761">PubMed</a> |
+      <a href="https://link.springer.com/protocol/10.1007%2F978-1-4939-7528-0_15">Publisher</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Storm AJ, Jensen PA.</p>
+    <p class="pubtitle">Designing randomized DNA sequences free of restriction enzyme recognition sites.</p>
+    <p class="journal"><i>Biotechnology Journal</i>. 2017, doi:10.1002/biot.201700326.</p>
+    <p class="links">
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/28865135">PubMed</a> |
+      <a href="http://onlinelibrary.wiley.com/doi/10.1002/biot.201700326/full">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA*, Zhu Z*, van Opijnen T.</p>
+    <p class="pubtitle">Antibiotics disrupt coordination between transcriptional and phenotypic stress responses in pathogenic bacteria.</p>
+    <p class="journal"><i>Cell Reports</i>. 2017, <i>20</i> 1705-1716.</p>
+    <p class="links">
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/28813680">PubMed</a> |
+      <a href="http://www.cell.com/cell-reports/fulltext/S2211-1247(17)31041-0">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA.</p>
+    <p class="pubtitle">Hands-on Assembly of DNA Sequencing Reads as a Gateway to  Bioinformatics.</p>
+    <p class="journal"><i>Journal of Microbiology &amp; Biology Education</i>. 2017, 18:2.</p>
+    <p class="links">
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/28861132">PubMed</a> |
+      <a href="http://www.asmscience.org/content/journal/jmbe/10.1128/jmbe.v18i2.1295">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA, Dougherty BV, Moutinho TJ, Papin JA.</p>
+    <p class="pubtitle">Miniaturized plate readers for low-cost, high-throughput phenotypic screening.</p>
+    <p class="journal"><i>Journal of Laboratory Automation.</i>  2015, Feb;20(1):51-5.</p>
+    <p class="links">
+      <a href="http://www.ncbi.nlm.nih.gov/pubmed/25366331">PubMed</a> |
+      <a href="http://jla.sagepub.com/content/20/1/51.long">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA, Papin JA.</p>
+    <p class="pubtitle">MetDraw:  Automated visualization of genome-scale metabolic models and high-throughput data.</p>
+    <p class="journal"><i>Bioinformatics.</i> 2014, 30(9): 1327-1328.</p>
+    <p class="links">
+      <a href="http://www.ncbi.nlm.nih.gov/pubmed/24413519">PubMed</a> |
+      <a href="http://bioinformatics.oxfordjournals.org/content/30/9/1327">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Chavali AK, Tlaxca JL, Blazier AS, Jensen PA, Pearson RD, Papin JA.</p>
+    <p class="pubtitle">Metabolic network analysis predicts efficacy of FDA-approved drugs targeting the causative agent of a neglected tropical disease.</p>
+    <p class="journal"><i>BMC Systems Biology.</i>  2012, 6:27.</p>
+    <p class="links">
+      <a href="http://www.ncbi.nlm.nih.gov/pubmed/22540944">PubMed</a> |
+      <a href="http://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-6-27">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA, Lutz KA, Papin JA.</p>
+    <p class="pubtitle">TIGER: Toolbox for integrating genome-scale metabolic models, expression data, and transcriptional regulatory networks.</p>
+    <p class="journal"><i>BMC Systems Biology.</i>  2011, 5:147.</p>
+    <p class="links">
+      <a href="http://www.ncbi.nlm.nih.gov/pubmed/21943338">PubMed</a> |
+      <a href="http://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-5-147">Journal</a>
+    </p>
+  </li>
+
+  <li class="pub">
+    <p class="authors">Jensen PA, Papin JA.</p>
+    <p class="pubtitle">Functional integration of a metabolic network model and expression data without arbitrary thresholding.</p>
+    <p class="journal"><i>Bioinformatics.</i>  2011, 27(4):541-7.</p>
+    <p class="links">
+      <a href="http://www.ncbi.nlm.nih.gov/pubmed/21172910">PubMed</a> |
+      <a href="http://bioinformatics.oxfordjournals.org/content/27/4/541.long">Journal</a>
+    </p>
+  </li>
+	</ul>
+
+<% include ../footer.html %>
+
+</body>
+</html>

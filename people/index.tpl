@@ -1,0 +1,174 @@
+<html>
+<head>
+  <link href='/main.css' rel='stylesheet'/>
+  <% include ../analytics.html %>
+  <title>Jensen Lab: People</title>
+</head>
+
+<body>
+
+<% include ../navigation.html %>
+
+<div class='front-matter'>
+    <div class='wrap'>
+        <h1>People</h1>
+    </div>
+</div>
+
+<div class='wrap article'>
+	<table class="ppl">
+<tr>
+<td class="ppl-image"><img src="/img/people/Paul_Jensen.jpg" width=160px></td>
+<td class="ppl-bio"><b>Paul Jensen</b> <p class="ppl-title">Principal Investigator</p>
+I trained as an engineer and microbiologist at the University of Minnesota, the
+University of Virginia, and Boston College. I joined the biomedical engineering
+faculty at Michigan to mentor students in systems microbiology, artificial intelligence,
+and automated science. I enjoy reading, backgammon, and spending time with my wife and two children.
+<br><br><a href="https://bme.umich.edu/people/jensen-paul/">Faculty Profile</a>
+<br><br>
+<details>
+	<summary>Official Bio</summary>
+	<p>
+	Paul Jensen is an Associate Professor of Biomedical Engineering at the University of Michigan. He completed bachelors degrees in biomedical and chemical engineering at the University of Minnesota, a PhD in biomedical engineering at the University of Virginia, and a postdoc in biology at Boston College. Paul leads a research team that developed the BacterAI robot scientist and discovered multiple quorum sensing pathways in the oral streptococci. His is the recipient of an NSF CAREER award and the NIH Trailblazer and MIRA grants. Paul is an ASQ Certified Quality Engineer and co-founder of the biotech company Cerillo, Inc.
+	</p>
+</details>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/people/Ryan_Wyllie.png" width=160px></td>
+<td class="ppl-bio"><b>Ryan Wyllie</b> <p class="ppl-title">Research Faculty</p>
+I graduated from the University of Illinois Urbana-Champaign in 2016 with a B.S. in
+bioengineering and a minor in chemistry. Following a summer of research at Argonne
+National Laboratory, I joined the Jensen Lab in the fall of 2016 and graduated with
+my PhD in bioengineering from UIUC during the summer of 2022. Currently, I work on
+developing novel genetic technologies for controlling and monitoring bacterial gene
+expression. I'm also interested in leveraging the combination of statistical design
+of experiments with laboratory automation to accelerate the process of characterizing
+non-model organisms. Outside of lab, I enjoy running, hiking, political philosophy,
+the history of Late Antiquity, and ancient numismatics.
+<br><br><a href="https://bme.umich.edu/people/wyllie-ryan/">Faculty Profile</a>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/people/Benjamin_David.jpeg" width=160px></td>
+<td class="ppl-bio"><b>Benjamin David</b> <p class="ppl-title">Research Faculty</p>
+I studied biomedical engineering at the University of Illinois Urbana-Champaign and the University of Michigan. My research combines artificial intelligence, laboratory robotics, and quality engineering to build autonomous laboratories. In the Jensen Lab, I am working with a team to run a high-throughput microbial phenotyping platform to characterize understudied microbes. Outside of my work, I enjoy reading, golf, and spending time with my wife and two dogs.
+<br><br><a href="https://bme.umich.edu/people/benjamin-david/">Faculty Profile</a>
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/people/Vasu_Rao.png" width=160px></td>
+<td class="ppl-bio"><b>Vasu Rao</b> <p class="ppl-title">Graduate Student</p>
+I completed my BS in bioengineering at the University of Illinois Urbana-Champaign and my MS at the University of Michigan. I joined the Jensen Lab as an undergraduate in the fall of 2021 and have continued as a PhD student. My research focuses on developing artificial intelligence approaches to model and understand complex dynamical systems. I am interested in integrating these methods into our group's automated science pipelines to study microbial dynamics. Outside of research, I train and compete in chess and jiu-jitsu, and enjoy reading classics, history, and science. 
+</td>
+</tr>
+<tr>
+<td class="ppl-image"><img src="/img/people/Noelle_Toong.png" width=160px></td>
+<td class="ppl-bio"><b>Noelle Toong</b> <p class="ppl-title">Graduate Student</p>
+I received my BS in Neuroscience in 2019, and MS in Automated Science in 2021,
+both from Carnegie Mellon University. After working for a year in industry,
+I joined the Jensen lab in Fall 2022 as a Biomedical Engineering PhD student.
+I am developing a Bayesian framework for predicting bacterial growth in batched
+experiments. In my free time, I like to cook, play video games, and play the violin.
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="ppl-bio"><b>Noah Schmid</b> <p class="ppl-title">Graduate Student</p>
+I received my BS and MS degrees in Bioengineering from the University of Illinois Urbana-Champaign.
+I started my research in the Jensen lab in 2019 focused on experimental design and optimization of <i>Streptococcus mutans</i> transformation.
+I spent a year after earning my Master’s degree working in the Jensen lab on the BacterAI project before starting a PhD in
+Biomedical Engineering at the University of Michigan. I am developing a system to understand the genetic activation of induced competence in <i>S. mutans</i>
+ with future plans to use the CRISPR-Cas9 toolset to characterize genes in multiple streptococci. In my free time I am an avid home cook, and I also enjoy watching movies, reading, and playing videogames with friends.
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/people/Will_Herbert.jpg" width=160px></td>
+<td class="ppl-bio"><b>William Herbert</b> <p class="ppl-title">Postdoctoral Fellow</p>
+I completed my BS in Bioengineering from the University of Illinois Urbana-Champaign in 2019 and my Ph.D. from the Mayo Clinic Graduate School of Biomedical Sciences in 2025. I worked in the Jensen Lab as an undergraduate and returned for my postdoc. My primary research interest is to understand how the data deep learning models are trained on impacts their ability to generalize in an open-world setting. Our group's lab automation platform has provided me with a unique opportunity to identify how we can build AI-enabled datasets from scratch. Outside of work, I like to hang out with my beagle Rosie, read historical fiction and nonfiction, and go fishing. 
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/people/Christian_Reinhardt.jpg" width=160px></td>
+<td class="ppl-bio"><b>Christian Reinhardt</b> <p class="ppl-title">Undergraduate Student</p>
+I'm an undergraduate in Biomedical Engineering with a minor in Biochemistry on the Pre-Med track. I joined the Jensen Lab in the summer of 2025 and my research primarily has focused on automating pH assays for high throughput biology. In addition to the Jensen Lab, I do research at the Kellogg Eye Center focusing on machine learning as a means to advance eyecare as well as scientific writing for novel therapeutics and clinical care. Beyond the lab, I'm a follower of Jesus Christ, an avid bowler, a musician (primary instrument is drums), and founding an AI Consulting startup (syzygy.services) with my best friend.
+</td>
+</tr>
+
+<tr>
+<td class="ppl-image"><img src="/img/people/Alex_Speigle.png" width=160px></td>
+<td class="ppl-bio"><b>Alex Speigle</b> <p class="ppl-title">Graduate Student</p>
+I graduated from the University of Michigan in May 2025 with a double major in Mathematics and Biomedical engineering, with minors in computer science and biochemistry. I joined the Jensen Lab as a masters student in Fall 2025 where I implement reinforcement learning algorithms to remove as many nonessential genes from bacterial strains as possible. I have other research interests in drug design, computational modeling, and machine learning as an optimal control problem. I am a year round distance runner and enjoy a wide variety of puzzles from Rubik's cube variants to video games, with my favorites being Portal and Limbo. 
+<br><br><a href="https://adsfibonacci.github.io/">GitHub Profile</a>
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td class="ppl-bio"><b>Chloe Baumer</b> <p class="ppl-title">Lab Technician</p>
+I received my BS in Neuroscience from Michigan State University in the spring of 2025 and joined the Jensen Lab in the fall of 2025. I currently run quality control assays for the lab and ensure the smooth operation of our automated microbial phenotyping platform. Beyond the lab, I enjoy playing/listening to music, reading, painting, longboarding, and playing video games.
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td class="ppl-bio"><b>Ruqaiya Siddiqui</b> <p class="ppl-title">Lab Manager</p>
+I enjoy working in the Jensen Lab, where I support research focused on developing and training AI models for predictive microbiology. I bring experience in molecular biology, client-focused research support, and laboratory operations, in particular including culturing methods and characterization of microbial systems.
+I hold a M.Sc. in Biochemistry and Molecular Biology and thoroughly enjoy assisting in processes that advance innovative, technology-driven approaches to scientific discovery and so am super excited to contribute to the Jensen Lab’s efforts in building next-generation predictive biological tools. 
+Outside of work I enjoy hosting parties, travelling and being outdoors. 
+</td>
+</tr>
+
+
+</table>
+
+<div class="alumni">
+  <h2>Alumni</h2>
+    <h4>Graduate Students</h4>
+    <ul>
+      <li>Deepthi Suresh, Ph.D.</li>
+      <li>Brendan Brasch, M.S. (Software Engineer at AbbVie)</li>
+      <li>Walden Li, Ph.D. (Postdoc at DTU Biosustain)</li>
+      <li>Kenan Jijakli, Ph.D. (ML scientists at Indigo)</li>
+      <li>Dikshant Pradhan, M.S. (Bioinformaticist at Koch Institute, MIT)</li>
+      <li>Jeremy Kemball, M.S. (Bioinformatics Research Scientist at Illumina)</li>
+    </ul>
+
+    <h4>Undergraduate Students</h4>
+    <ul>
+      <li>Walker Rickord (Grad student at Harvard/MIT)</li>
+      <li>Pranith Bottu (Grad student at UIUC CS)
+      <li>Soham Saha (Engineer at Uber)</li>
+      <li>Noah Schmid (Grad student at Illinois BIOE)</li>
+      <li>William Herbert (Grad student at Mayo Clinic BME)</li>
+      <li>Matthew Tang (Engineer at Google)</li>
+      <li>Thomas Keaty (Technical Problem Solver at Epic Systems)</li>
+      <li>Joshua Au (Trainee at FTTA)</li>
+      <li>Mia Sales (Grad student at UCSD Bioinf. & Comp. Bio)</li>
+      <li>Garrett Chou (Engineer at Fellowes)</li>
+      <li>Caroline Blassick (Grad student at Boston Univ. BME)</li>
+    </ul>
+
+    <h4>Technicians and Engineers</h4>
+    <ul>
+      <li>Austen Bloembergen (Integration Engineer at Epic Systems)</li>
+      <li>Kurt Kostan</li>
+      <li>Adam Dama (Software Engineer at Synthego)</li>
+      <li>Annamarie Lunkes (Research Associate at Inzen Therapeutics)</li>
+      <li>Danielle Leyva (Dental student at Univ. of Illinois Chicago)</li>
+      <li>Kevin Kim (Med student at Univ. of Illinois)</li>
+      <li>Zach Quicksall (Informatics Specialist at Mayo Clinic)</li>
+      <li>Brent Wu (Med student at St. Louis Univ.)</li>
+      <li>Megan Griebel (Grad student at Boston Univ. BME)</li>
+      <li>Audra Storm (Med student at Southern Illinois Univ.)</li>
+    </ul>
+</div>
+
+<% include ../footer.html %>
+
+</body>
+</html>

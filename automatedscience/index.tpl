@@ -1,0 +1,194 @@
+<html>
+<head>
+  <link href='/main.css' rel='stylesheet'/>
+  <% include ../analytics.html %>
+  <title>Jensen Lab: Automated Science</title>
+</head>
+
+<body>
+
+<% include ../navigation.html %>
+
+<div class='front-matter'>
+  <div class='wrap'>
+      <h1>Workshops on Automated Science</h1>
+  </div>
+</div>
+<div class='wrap article'>
+  <center><img src="closedloop.png" width="400px"></center>
+
+  <p>Automated science uses AI to plan, execute and interpret experiments without
+    human intervention. Automated science platforms combine three technologies:
+    laboratory robots that perform physical experiments, a machine learning model
+    that predicts results and an AI agent that plans future experiments. The fast-growing
+    field of automated science includes self-driving labs, robot scientists, and
+    AI systems that enhance human experimenters.
+
+  <p><a href="http://jensenlab.net">Paul Jensen</a> (University of Michigan)
+    and <a href="http://hendrickslab.com">Mark Hendricks</a> (Whitman College)
+    teach a workshop that introduces automated science and shows how automation,
+    modeling, and AI fit together
+    into a closed-loop, autonomous system. The workshop also emphasizes the interfaces
+    between technologies, e.g., how to modify machine learning models for use with
+    a planning agent or the liquid handling challenges that arise from AI-planned
+    experiments. Case studies in biology and chemistry highlight state-of-the-art
+    automated science systems.
+
+  <p><b>Module 1: Introduction to Automated Science.</b> (4 hours)
+    The first module introduces the "plan <texttt>-></texttt> experiment <texttt>-></texttt> model"
+    strategy and the Bayesian optimization framework for identifying optimal experiments.
+    Participtants will develop a conceptual understanding of the explore vs. exploit tradeoff
+    and the constratints on optimal learning. This module is designed to get automated engineers,
+     scientists, and modelers on the same page and assumes no prior knowledge of AI.
+
+  <p><b>Module 2: Hands-on Automated Science.</b> (4 hours)
+    Participants will apply the techniques from Module 1 to build an AI system that learns
+    to aim a tabletop catapult. Teams will design a learning strategy, collect data, and
+    train a simple machine learning model using a Python software library. Ideally, each team of
+    2-4 participants would have one member with basic Python programming skills.
+
+  <p><b>Module 3: Experiment Design and Automated Quality Control.</b> (4 hours)
+    The third module explains how classical design of experiments (DOE) can enhance modern
+    automated science systems. Topics include factor screening, pooling designs, hybrid designs,
+    and resposne surface methodology (RSM). The module also introduces techniques from
+    statistical quality control that can be deployed autonomously to monitor AI-driven labs.
+
+  <p><b>Module 4: Modeling for Automated Science.</b> (4 hours)
+    The final module dives deeper into the machine learning methods used to
+    implement automated science systems.
+    Topics include Gaussian Process Regression, Bayesian machine learning,
+    optimization-based policies, batching/parallel experiments, hybrid experiments,
+    and interpretation. This module is designed for participants with a computational
+    background and assumes a basic understanding of machine learning concepts.
+
+  <p><b>Audience and Background:</b> Attendees will learn from instructors who have assembled automated science pipelines
+    in biology and chemistry. The course requires only a basic understanding of statistics
+    and laboratory automation (except Module 4, which is designed for participants with a computational background).
+    Practitioners with expertise in one technology (e.g., machine learning or lab automation) are encouraged to attend and learn
+    how to combine their knowledge with other parts of an automated science platform.
+
+  <p><b>Format:</b> Workshops last 4-16 hours (depending on the number of modules), split over 1-2 days.
+    Workshops can be held at a single company/institution, or multiple groups can work together to host
+    an open workshop. Workshops can also be taught at conferences or sponsored by government/industry partnerships.
+    <b>Please contact Paul Jensen (pjens@umich.edu) if you are interested in hosting a workshop.</b>
+
+  <h2>Materials from Previous Short Courses</h2>
+
+  <p>The following resources are from the <i>Introduction to Automated Science</i>
+    short course presented at SLAS 2023 in San Diego, CA, USA.
+    The same topics are covered by Module 1 in our Automated Science workshops.
+    Permission is granted to use any of these materials for educational purposes (with attribution).
+    Questions, comments, suggestions, and corrections are appreciated.</p>
+
+  <ol>
+    <li><b>Introduction</b> <a href="slas2024/1_Introduction.pdf">[slides]</a>
+      <ul>
+        <li>Lab automation vs. automated science
+        <li>The automated science cycle
+        <li>Definitions
+        <li>The case studies presented in the short course are:
+          <ul class="publist">
+            <li class="pub">Martin KN, Rubsamen MS, Kaplan NP, Hendricks MP.<br>
+              <b>Method for Interfacing a Plate Reader Spectrometer Directly with an OT-2 Liquid Handling Robot</b><br>
+              <i>chemRxiv</i>, 2022. <a href="https://chemrxiv.org/engage/chemrxiv/article-details/62db82224e76bf83689c3b6d">[link]</a>
+            <li class="pub">Dama AC, Kim KS, Leyva DM, Lunkes AP, Schmid NS, Jijakli K, Jensen PA.<br>
+      <b>BacterAI maps microbial metabolism without prior knowledge.</b><br>
+      <i>Nature Microbiology</i>. 2023; 8:1018-1025. <a href="https://www.nature.com/articles/s41564-023-01376-0">[link]</a>
+          </ul>
+      </ul>
+    <li><b>Planning -- Exploiting</b> <a href="slas2024/2_Planning1.pdf">[slides]</a>
+      <ul>
+        <li>Initial designs
+        <li>Searching for next runs
+        <li>Sequential optimization
+      </ul>
+    <li><b>Models</b> <a href="slas2024/3_Models.pdf">[slides]</a>
+      <ul>
+        <li>Mechanistic vs. black-box
+        <li>Fixed parameter vs. Bayesian
+        <li>Types of models
+        <li>Bagging
+        <li>Calibration vs. accuracy
+      </ul>
+    <li><b>Planning -- Exploring</b> <a href="slas2024/4_Planning2.pdf">[slides]</a>
+      <ul>
+        <li>Sequential model improvement
+        <li>Explore vs. exploit tradeoffs
+        <li>Expected improvement
+        <li>Optimality of sequential designs
+      </ul>
+    <li><b>Putting it all together</b> <a href="slas2024/5_Running.pdf">[slides]</a>
+      <ul>
+        <li>Batched experiments
+        <li>Automation challenges
+        <li>The automated science checklist
+      </ul>
+  </ol>
+
+  Slides from a previous course at SLAS 2023:
+  <ol>
+    <li><b>Introduction</b> <a href="slas2023/1_Introduction.pdf">[slides]</a>
+    <li><b>Planning -- Exploiting</b> <a href="slas2023/2_Planning1.pdf">[slides]</a>
+    <li><b>Models</b> <a href="slas2023/3_Models.pdf">[slides]</a>
+    <li><b>Planning -- Exploring</b> <a href="slas2023/4_Planning2.pdf">[slides]</a>
+    <li><b>Putting it all together</b> <a href="slas2023/5_Running.pdf">[slides]</a>
+  </ol>
+
+<h2>Suggested Reading</h2>
+
+  <h4>Bayesian optimization (modeling & policies)</h4>
+    <ul>
+      <li><b><i>Surrogates</i> by Robert Grammacy.</b> A statistically-oriented
+        tutorial of surrogate modeling, including space-filling designs and
+        optimization. The practical, conversational style includes R code for every
+        figure. Grammacy connects Bayesian optimization with DOE/RSM techniques to show
+        applications in process improvement. <a href="https://bobby.gramacy.com/surrogates/">[Website]</a>
+      <li><b><i>Bayesian Optimization</i> by Roman Garnett.</b> A comprehensive treatment
+        of Gaussian Processes and Bayesian policies. More theoretical than other books, great
+        for those wanting a mathematically-rigorous reference. <a href="https://bayesoptbook.com">[Website]</a>
+      <li><b><i>Bayesian Optimization in Action</i> by Quan Nguyen.</b> A guided
+        tutorial of Gaussian Process modeling and Bayesian optimization policies.
+        A good starting point for implementing these approaches in Python
+        (GPyTorch/BoTorch). <a href="https://www.manning.com/books/bayesian-optimization-in-action">[Publisher]</a>
+      <li><b><i>The Design and Analysis of Computer Experiments</i> by Satner,
+        Williams, & Notz.</b> This is a classic refernce on Bayesian optimization,
+        primarily for surrogate modeling of computer simulations. Readers interested
+        in wet-lab experiments may need to translate some of the techniques. <a href="https://link.springer.com/book/10.1007/978-1-4757-3799-8">[Publisher]</a>
+      <li><b><i>Experiments</i> by Wu & Hamada.</b> Chapter 14 is a brief introduction
+        to Bayesian optimization
+        for those coming from a DOE/RSM background. <a href="https://www.wiley.com/en-us/Experiments%3A+Planning%2C+Analysis%2C+and+Optimization%2C+3rd+Edition-p-9781119470120">[Publisher]</a>
+    </ul>
+
+    <h4>Bayesian modeling</h4>
+      <ul>
+        <li><b><i>Hands-on Bayesian Neural Networks -- A Tutorial for Deep Learning Users</i> by Jospin, et al.</b>
+          A comprehensive review of Bayesian neural networks, including an appendix with Python code.
+          <a href="https://arxiv.org/abs/2007.06823">[arXiv]</a>
+        <li><b><i>Variational Methods for Machine Learning with Applications to Deep Networks</i>
+          by Cinelli, et al.</b> Shows how Variational Inference (VI) can be
+          used to convert traditional deep neural networks into Bayesian models.
+          <a href="https://link.springer.com/book/10.1007/978-3-030-70679-1">[Publisher]</a>
+        <li><b><i>Probabilistic Machine Learning: Advanced Topics</i> by Murphy.</b>
+          A series of reference books on machine learning with a probabilistic view.
+          Topics in Book 2 include Bayesian neural networks (chapter 17), Gaussian processes (chapter 18),
+          and policies (chapter 34). Python code included for each example.
+          <a href="https://probml.github.io/pml-book/">[GitHub]</a>
+      </ul>
+
+<h2>Other Resources</h2>
+
+<p>Paul taught a semester-long course on experiment design at the University
+  of Illinois. The <a href="http://bioe498.github.io">course website</a> has
+  lecture slides, links to textbooks, and assignments. Part 1 of the course
+  discusses classical Design of Experiments which can be used for factor screening
+  and initial designs. Part 2 covers sequential optimization with Bayesian surroages.
+  Part 3 introduces reinforcement learning for applications where experiments
+  are inexpensive and fast.
+
+</div>
+
+<% include ../footer.html %>
+
+</body>
+</html>
+

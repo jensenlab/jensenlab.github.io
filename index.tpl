@@ -1,0 +1,109 @@
+<html>
+<head>
+  <link href='main.css' rel='stylesheet'/>
+  <% include analytics.html %>
+  <title>Jensen Lab: Home</title>
+</head>
+
+<body>
+
+
+<% include navigation.html %>
+
+
+<div class="splash-new">
+	<span>
+		<img src="img/JensenVertical2.jpg" height=200>
+	</span>
+	<span>
+        	<img src="img/lab_logo.png" height=200px>
+	</span>
+</div>
+
+
+<div class="wrap">
+  <p>Welcome to the Jensen Lab in the <a href="http://bme.umich.edu">Biomedical Engineering Department</a> at the <a href="http://umich.edu">University of Michigan</a>. We combine laboratory robotics with artificial intelligence to
+solve fundamental problems in microbiology. Our self-driving lab has performed
+over 1&nbsp;million high-throughput experiments to understand bacterial
+metabolism and quorum sensing.</p>
+
+<ul>
+  <li>Meet our <a href="people">people</a> and our <a href="automation">robots</a>.</li>
+  <li>Read our <a href="publications">publications</a> and preprints.</li>
+  <li>Find <a href="teaching">teaching</a> materials including our undergraduate <a href="teaching/#books">textbook</a> <i>Linear Algebra: Foundations of Machine Learning</i>.</li>
+  <li>Learn about our <a href="automatedscience">workshops</a> on autonomous science. We hold workshops around the world at conferences, companies, national laboratories, foundations, and academic institutions.</li>
+</ul>
+
+<h2>News</h2>
+<table class="news">
+  <tr>
+    <td class="date">Oct&nbsp;2025</td>
+    <td>The lab is growing:<ul><li>Will Herbert joins the lab as postdoc. <li>Chloe Baumer joins the lab as a technician. <li>Ruqaiya Siddqui becomes our lab manager.</ul></td>
+  </tr>
+
+  <tr>
+    <td class="date">Sep&nbsp;2025</td>
+    <td>Our lab receives funding from the Align Foundation to create the world's largest phenotypic dataset for microbes.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Aug&nbsp;2025</td>
+    <td>Our lab receives funding from OpenAI to train language models to generate and test hypotheses.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Jul&nbsp;2025</td>
+    <td>Graduate student Benjamin David defends his PhD thesis.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Jul&nbsp;2025</td>
+    <td>Graduate student Deepthi Suresh defends her PhD thesis.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Jul&nbsp;2025</td>
+    <td>Our lab receives a sponsored research agreement with Vedanta Biosciences.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Jun&nbsp;2025</td>
+    <td>The Jensen Lab attends ASM 2025: Ryan gives an oral presentation, Noah and Noelle present posters, and Paul hosts a plenary session.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Jun&nbsp;2025</td>
+    <td>Undergraduates Bella Hodges and Amanda Leonard join us for the summer through our exchange program with Lisa McLellan's lab at Purdue University-Fort Wayne.</td>
+  </tr>
+
+  <tr>
+    <td class="date">Nov&nbsp;2024</td>
+    <td>Our lab receives funding from DARPA to build AI agents that learn the functions of unannotated genes.</td>
+  </tr>
+</table>
+
+<h2>Contact</h2>
+
+Our laboratory's home is the <a href="http://bme.umich.edu">Department of Biomedical Engineering</a> at the <a href="http://umich.edu">University of Michigan</a>.
+
+<br><br>
+
+<table>
+	<tr>
+		<td>Mailing Address:</td>
+		<td style="padding-left:10px">
+			Jensen Lab<br>
+			University of Michigan<br>
+			2420 LBME<br>
+			1101 Beal Ave<br>
+			Ann Arbor, MI 48109
+		</td>
+	</tr>
+</table>
+
+</div>
+
+<% include footer.html %>
+
+</body>
+</html>
