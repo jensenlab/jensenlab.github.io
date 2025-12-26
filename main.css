@@ -115,6 +115,8 @@ li.pub {
 p.authors {
   font-size: 13px;
   font-variant: small-caps;
+  line-height: 1em;
+  color: #808080;
 }
 p.pubtitle {
   font-size: 13px;

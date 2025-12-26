@@ -19,7 +19,7 @@
 
   <li class="pub">
 	<p class="authors">Jensen PA, Al Habib S, Baker S, Bernstein D, David BM, DeBenedictis E, Eisen JA, Fitch L, Hoarfrost A, Knight-Connonni V, Koblitz J, Mahadevan R, Milshteyn S, Nattermann U, Reimer LC, Stork D, Surae S, Winnifrith A, Wood-Charlson EM, Kelly P</p>
-	<p class="pubtitle">Genotype to Phenotype: Design of an Extensible Experimental Platform for Characterizing Microbes</p>
+	<p class="pubtitle">Genotype to Phenotype: Design of an extensible experimental platform for characterizing microbes.</p>
 	<p class="journal"><i>Zenodo</i>. 2025; 10.1038/s41564-023-01376-0.</p>
 	<p class="links"><a href="https://zenodo.org/records/14990500">Article</a>
 	</p>
