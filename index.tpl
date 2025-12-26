@@ -38,7 +38,12 @@ metabolism and quorum sensing.</p>
 <table class="news">
   <tr>
     <td class="date">Oct&nbsp;2025</td>
-    <td>The lab is growing:<ul><li>Will Herbert joins the lab as postdoc. <li>Chloe Baumer joins the lab as a technician. <li>Ruqaiya Siddqui becomes our lab manager.</ul></td>
+    <td>Welcome new lab members:<ul><li>Will Herbert joins the lab as postdoc. <li>Chloe Baumer joins the lab as a technician. <li>Ruqaiya Siddqui becomes our lab manager.</ul></td>
+  </tr>
+
+  <tr>
+    <td class="date">Oct&nbsp;2025</td>
+    <td>Paul, Ben, and Mark Hendricks (Whitman College) teach a short course on Autonomous Science in Denmark.</td>
   </tr>
 
   <tr>
