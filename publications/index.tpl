@@ -17,6 +17,27 @@
 <div class='wrap article'>
 	<ul class="publist">
 
+<li class="pub">
+<p class="authors">David BM, Jensen PA</p>
+<p class="pubtitle">Planning and scheduling biological experiments across multiple liquid handling robots.</p>
+<p class="journal"><i>bioRxiv</i>. 2025.</p>
+<p class="links"><a href="???">Preprint</a></p>
+</li>
+
+<li class="pub">
+<p class="authors">Martin JP, Brown JS, Dunmoye ID, Smith LT, Suresh DE, Jensen PA</p>
+<p class="pubtitle">AI and engineering careers: recent graduates' outlook on opportunities and challenges.</p>
+<p class="journal"><i>International Journal of STEM Education</i>. 2025; 10.1186/s40594-025-005830-x.</p>
+<p class="links"><a href="https://link.springer.com/article/10.1186/s40594-025-00583-x">Journal</a></p>
+</li>
+
+<li class="pub">
+<p class="author">Sanders J, Mobley~IV J, Miller I, Sochacka NW, Jensen PA, Jensen KJ.</p>
+<p class="pubtitle">Affordances and limitations of using large language models to generate qualitative data about mental health perceptions in engineering.</p>
+<p class="journal"><i>Journal of Engineering Education</i>. 2025; 10.1002/jee.70037.</p>
+<p class="links"><a href="https://onlinelibrary.wiley.com/doi/10.1002/jee.70037">Journal</a></p>
+</li>
+
   <li class="pub">
 	<p class="authors">Jensen PA, Al Habib S, Baker S, Bernstein D, David BM, DeBenedictis E, Eisen JA, Fitch L, Hoarfrost A, Knight-Connonni V, Koblitz J, Mahadevan R, Milshteyn S, Nattermann U, Reimer LC, Stork D, Surae S, Winnifrith A, Wood-Charlson EM, Kelly P</p>
 	<p class="pubtitle">Genotype to Phenotype: Design of an extensible experimental platform for characterizing microbes.</p>
