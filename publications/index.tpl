@@ -20,8 +20,8 @@
 <li class="pub">
 <p class="authors">David BM, Jensen PA</p>
 <p class="pubtitle">Planning and scheduling biological experiments across multiple liquid handling robots.</p>
-<p class="journal"><i>bioRxiv</i>. 2025.</p>
-<p class="links"><a href="???">Preprint</a></p>
+<p class="journal"><i>bioRxiv</i>. 2025; 10.64898/2025.12.26.696584.</p>
+<p class="links"><a href="https://www.biorxiv.org/content/10.64898/2025.12.26.696584v1">Preprint</a></p>
 </li>
 
 <li class="pub">
