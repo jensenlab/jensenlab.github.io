@@ -29,7 +29,7 @@ and automated science. I enjoy reading, backgammon, and spending time with my wi
 <details>
 	<summary>Official Bio</summary>
 	<p>
-	Paul Jensen is an Associate Professor of Biomedical Engineering at the University of Michigan. He completed bachelors degrees in biomedical and chemical engineering at the University of Minnesota, a PhD in biomedical engineering at the University of Virginia, and a postdoc in biology at Boston College. Paul leads a research team that developed the BacterAI robot scientist and discovered multiple quorum sensing pathways in the oral streptococci. His is the recipient of an NSF CAREER award and the NIH Trailblazer and MIRA grants. Paul is an ASQ Certified Quality Engineer and co-founder of the biotech company Cerillo, Inc.
+	Paul Jensen is an Associate Professor of Biomedical Engineering at the University of Michigan. He completed bachelors degrees in biomedical and chemical engineering at the University of Minnesota, a PhD in biomedical engineering at the University of Virginia, and a postdoc in biology at Boston College. Paul leads a research team that developed the BacterAI robot scientist and discovered multiple quorum sensing pathways in the oral streptococci. He is the recipient of an NSF CAREER award and the NIH Trailblazer and MIRA grants. Paul is an ASQ Certified Quality Engineer and co-founder of the biotech company Cerillo, Inc.
 	</p>
 </details>
 </td>
