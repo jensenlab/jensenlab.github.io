@@ -18,7 +18,7 @@
 <div class='wrap article'>
 	<table class="ppl">
 <tr>
-<td class="ppl-image"><img src="/img/people/Paul_Jensen.jpg" width=160px></td>
+<td class="ppl-image"><img src="/img/people/Paul_Jensen.png" width=160px></td>
 <td class="ppl-bio"><b>Paul Jensen</b> <p class="ppl-title">Principal Investigator</p>
 I trained as an engineer and microbiologist at the University of Minnesota, the
 University of Virginia, and Boston College. I joined the biomedical engineering
