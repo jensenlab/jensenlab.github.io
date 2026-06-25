@@ -141,6 +141,11 @@ p.links {
   font-size: 13px;
 }
 
+.people .ppl-image img,
+.splash-new span:first-child img {
+  border-radius: 8px;
+}
+
 table.ppl {
    padding: 0px;
    /* padding-left: 25px; */
