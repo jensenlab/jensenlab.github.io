@@ -257,11 +257,21 @@ summary {
   td.ppl-image {
     padding-right: 0;
     padding-bottom: 8px;
+    text-align: center;
   }
 
   td.ppl-bio {
     padding-left: 0;
     padding-bottom: 30px;
+  }
+
+  td.ppl-bio > b {
+    display: block;
+    text-align: center;
+  }
+
+  p.ppl-title {
+    text-align: center;
   }
 
   /* news: stack date above item */
