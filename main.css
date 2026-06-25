@@ -22,6 +22,9 @@ body .content {
 .wrap {
     max-width: 700px;
     margin: 0 auto;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
 }
 
 .splash-new {
@@ -43,10 +46,16 @@ body .content {
   margin-bottom: 15px;
   line-height: 24px;
   max-width: 700px;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* Matches publications nav line-height. */
+}
+.nav-logo {
+  display: none;
 }
 .nav a {
   color: rgba(0, 0, 0, 0.6);
@@ -192,5 +201,84 @@ summary {
 .footer {
   text-align: center;
   color: #808080;
+}
+
+/* ── Mobile responsive ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .splash-new {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* constrain all images; splash override below wins on specificity */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .splash-new img {
+    height: 130px;
+    width: auto;
+  }
+
+  /* show logo in nav; hide it from the splash section */
+  .nav-logo {
+    display: block;
+    height: 36px;
+    width: auto;
+  }
+
+  .nav > span:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .splash-new span:last-child {
+    display: none;
+  }
+
+  /* people / equipment: stack image above bio */
+  table.ppl tr,
+  table.ppl td {
+    display: block;
+  }
+
+  td.ppl-image {
+    padding-right: 0;
+    padding-bottom: 8px;
+  }
+
+  td.ppl-bio {
+    padding-left: 0;
+    padding-bottom: 30px;
+  }
+
+  /* news: stack date above item */
+  table.news tr {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  table.news td {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  td.date {
+    text-align: left;
+    padding-bottom: 2px;
+    padding-top: 10px;
+  }
 }
 
