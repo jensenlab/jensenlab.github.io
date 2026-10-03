@@ -1,0 +1,858 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='/main.css' rel='stylesheet'/>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="a7ba363c-3cc8-46eb-b4ba-37f97c632a48"></script>
+  <title>Jensen Lab: CHESSSim Lab Manual</title>
+  <style>
+    .article pre { background: #f6f6f4; border: 1px solid #ddd; padding: 8px; overflow-x: auto; font-size: 11px; line-height: 1.35em; }
+    .article code { font-family: Menlo, Consolas, monospace; font-size: 11px; }
+    .article table { border-collapse: collapse; margin: 8px 0; }
+    .article th, .article td { border-bottom: 1px solid #ddd; padding: 3px 8px 3px 0; text-align: left; vertical-align: top; }
+    .article img { max-width: 100%; }
+    .downloads { text-align: center; margin-bottom: 16px; }
+  </style>
+</head>
+
+<body>
+
+<div class='nav'>
+	<span><b>The Jensen Lab @ Michigan</b><img class="nav-logo" src="/img/lab_logo.png"></span>
+	<span>
+		<ul class='wrap'>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/people'>People</a></li>
+			<li><a href='/publications'>Papers</a></li>
+			<li><a href='/tools'>Tools/Data</a></li>
+			<li><a href='/teaching'>Teaching</a></li>
+			<li><a href='/automation'>Robots</a></li>
+			<li><a href='/automatedscience'>Workshops</a></li>
+		</ul>
+	</span>
+</div>
+
+<div class='front-matter'>
+  <div class='wrap'>
+      <h1>CHESSSim Lab Manual</h1>
+  </div>
+</div>
+<div class='wrap article'>
+<p class='downloads'><a href="CHESSSim_tutorial.pdf">Tutorial slides (PDF)</a></p>
+<h2 id="overview">Overview</h2>
+<p>CHESSSim simulates an automated microbiology lab. Experiments are submitted as protocols, which are JSON files listing lab operations. The simulator validates the protocol, runs the operations in order, and returns the plate reads. The organism is <em>Streptococcus gulonis</em> strain A2. Its growth requirements are unknown.</p>
+<p>Each submission is processed in four steps:</p>
+<ol>
+<li><strong>Protocol.</strong> A protocol is a list of operations: move labware, transfer liquid, set a temperature, read a plate, or pause.</li>
+<li><strong>Validation.</strong> Each operation is checked before anything runs. The checks include whether the instrument exists, whether it can reach the labware, whether the volume is in range, and whether the labware fits in its new location. If any operation is invalid, the protocol is not run and the errors are returned.</li>
+<li><strong>Simulation.</strong> Operations run one at a time in the order listed. The duration of each operation is set by the instrument. Operations cannot be scheduled at specific times; timing is controlled by the order of operations and by pauses.</li>
+<li><strong>Results.</strong> The results file contains the validation report, a timeline of the operations, and all plate reads.</li>
+</ol>
+<p>The only measurements available are plate reads from the Epoch2. The contents of a well cannot be observed directly. Each submission starts with a new lab in the initial state described in this manual.</p>
+<p>Results and error messages refer to operations by their index in the protocol, starting at 1.</p>
+<h2 id="lab-layout">Lab layout</h2>
+<p>The lab has six top-level locations. All labware starts on the Bench, and all slots start empty.</p>
+<p>The tree below shows every location. A location's path is the list of names from the top of the tree, separated by <code>/</code> and omitting <code>Lab</code>. Locations marked "fixed" cannot be moved.</p>
+<pre><code>Lab                            22 °C (except the PlateHotel, once set)
+├── Bench                      starting labware
+│   ├── Plate1, Plate2, Plate3, Plate4          96-well plates, empty
+│   ├── DeepPlate1, DeepPlate2                  deep-well 96-well plates (2 mL wells), empty
+│   ├── alanine, arginine, aspartic_acid, asparagine, glutamic_acid, glutamine, glycine,
+│   │   histidine, isoleucine, leucine, lysine, methionine, phenylalanine, proline,
+│   │   serine, threonine, tryptophan, tyrosine, valine, cysteine
+│   │                                           amino acid tubes, 50× CDM
+│   ├── Glucose                                 glucose tube, 50× CDM
+│   ├── CDMBase1, CDMBase2, CDMBase3, CDMBase4  2× CDM base tubes
+│   ├── CDM                                     complete CDM tube, 1×
+│   ├── Water1, Water2, Water3, Water4          sterile water tubes
+│   └── SGU_A2                                  S. gulonis A2 in PBS, OD 1.0
+├── Human                      moves plates and tubes between the Bench and the Nimbus
+├── Nimbus                     liquid handler with one SingleChannel head
+│   ├── Slot1                  plate slot, empty
+│   ├── Slot2                  plate slot, empty
+│   ├── Slot3                  plate slot, empty
+│   ├── Slot4                  plate slot, empty
+│   ├── Slot5 (fixed)
+│   │   └── Rack1 (fixed)      50 mL tube rack
+│   │       └── Slot1, Slot2, Slot3, Slot4, Slot5, Slot6     tube slots, empty
+│   ├── Slot6 (fixed)
+│   │   └── Rack2 (fixed)
+│   │       └── Slot1, Slot2, Slot3, Slot4, Slot5, Slot6
+│   ├── Slot7 (fixed)
+│   │   └── Rack3 (fixed)
+│   │       └── Slot1, Slot2, Slot3, Slot4, Slot5, Slot6
+│   ├── Slot8 (fixed)
+│   │   └── Rack4 (fixed)
+│   │       └── Slot1, Slot2, Slot3, Slot4, Slot5, Slot6
+│   └── Waste (fixed)          waste bottle, one well A1, 1 L
+├── PlateHotel                 incubator (plate storage at a set temperature)
+│   ├── Drawer1
+│   │   └── Slot1, Slot2       96-well plate slots, empty
+│   ├── Drawer2
+│   │   └── Slot1, Slot2
+│   ├── Drawer3
+│   │   └── Slot1, Slot2
+│   └── Drawer4
+│       └── Slot1, Slot2
+├── PlateCrane                 moves plates between Nimbus Slot1–Slot4, the PlateHotel and the Epoch2
+└── Epoch2                     absorbance plate reader
+    └── Slot1                  96-well plate slot, empty
+</code></pre>
+<p>For example, the first tube slot in Rack1 is <code>Nimbus/Slot5/Rack1/Slot1</code>, and the liquid in the CDM tube is <code>Bench/CDM/A1</code> (until the tube is moved).</p>
+<h2 id="equipment">Equipment</h2>
+<p>The lab has five instruments. Each instrument performs one type of operation. All operations specify an instrument, and moves and transfers also specify a head.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Description</th>
+<th>Operation</th>
+<th>Head</th>
+<th>Reach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Nimbus</code></td>
+<td>Liquid-handling robot with one pipetting channel</td>
+<td><code>transfer</code></td>
+<td><code>SingleChannel</code></td>
+<td>The Nimbus deck: plates in Slot1–Slot4, tubes in Rack1–Rack4, and Waste</td>
+</tr>
+<tr>
+<td><code>Human</code></td>
+<td>A person who moves labware by hand</td>
+<td><code>move</code></td>
+<td><code>Hands</code></td>
+<td>The Bench and the Nimbus deck</td>
+</tr>
+<tr>
+<td><code>PlateCrane</code></td>
+<td>Robotic arm for plates</td>
+<td><code>move</code></td>
+<td><code>Gripper</code></td>
+<td>Nimbus Slot1–Slot4, the PlateHotel and the Epoch2</td>
+</tr>
+<tr>
+<td><code>PlateHotel</code></td>
+<td>Temperature-controlled plate storage with 4 drawers of 2 slots</td>
+<td><code>set_attribute</code> (Temperature)</td>
+<td>none</td>
+<td>Itself. Plates are loaded and unloaded by the PlateCrane.</td>
+</tr>
+<tr>
+<td><code>Epoch2</code></td>
+<td>Absorbance plate reader with one plate slot</td>
+<td><code>read</code> (Absorbance)</td>
+<td>none</td>
+<td>The plate in its slot. A read measures every well of the plate.</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>Bench</strong> holds the starting labware. It is not an instrument; labware on the Bench can only be stored or moved.</p>
+<p>The lab is at room temperature (22 °C). The PlateHotel is also at 22 °C until its temperature is set. Wells are at the temperature of their current location, including the Nimbus deck and the Epoch2.</p>
+<p>No instrument can reach every location. The Human moves plates between the Bench and the Nimbus plate slots, and the PlateCrane moves plates between the Nimbus plate slots, the PlateHotel, and the Epoch2. Tubes can only be moved by the Human between the Bench and the Nimbus tube racks. All moves can be made in either direction:</p>
+<pre><code>                               ┌──────── Nimbus deck ────────┐
+┌──────────────┐  Human        │  ┌───────────────────────┐  │  PlateCrane   ┌────────────────────┐
+│    Bench     │◀─ plates ────▶│  │ Plate slots           │◀─┼──────────────▶│ PlateHotel         │
+│              │               │  │ Slot1 to Slot4        │  │               │ 8 plate slots at   │
+│ 4 plates     │               │  └───────────────────────┘  │               │ a set temperature  │
+│ 2 deep-well  │               │             ▲               │               │                    │
+│   plates     │               │             │ PlateCrane    │               └────────────────────┘
+│ 31 tubes     │               │             ▼               │                         ▲
+│              │               │      (to the Epoch2) ───────┼──────────┐              │ PlateCrane
+│              │  Human        │  ┌───────────────────────┐  │          │              ▼
+│              │◀─ tubes ─────▶│  │ Tube racks            │  │          │    ┌────────────────────┐
+└──────────────┘               │  │ Rack1 to Rack4        │  │          └───▶│ Epoch2             │
+                               │  │ (Slot5 to Slot8)      │  │               │ reads the plate    │
+                               │  └───────────────────────┘  │               └────────────────────┘
+                               │  SingleChannel pipettes     │
+                               │  between any wells on the   │
+                               │  deck, and into Waste       │
+                               └─────────────────────────────┘
+</code></pre>
+<h2 id="labware-and-starting-stocks">Labware and starting stocks</h2>
+<p>The Bench starts with 6 empty plates and 31 tubes. Each tube contains 45 mL.</p>
+<table>
+<thead>
+<tr>
+<th>Labware</th>
+<th>Names</th>
+<th>Wells</th>
+<th>Well capacity</th>
+<th>Allowed locations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>96-well plate</td>
+<td><code>Plate1</code>–<code>Plate4</code></td>
+<td>A1–H12 (rows A–H, columns 1–12)</td>
+<td>400 µL</td>
+<td>Bench, Nimbus Slot1–Slot4, PlateHotel, Epoch2</td>
+</tr>
+<tr>
+<td>Deep-well 96-well plate</td>
+<td><code>DeepPlate1</code>–<code>DeepPlate2</code></td>
+<td>A1–H12</td>
+<td>2 mL</td>
+<td>Bench, Nimbus Slot1–Slot4</td>
+</tr>
+<tr>
+<td>50 mL conical tube</td>
+<td>31 tubes, named below</td>
+<td>one well, <code>A1</code></td>
+<td>50 mL</td>
+<td>Bench, Nimbus rack slots</td>
+</tr>
+<tr>
+<td>Waste bottle</td>
+<td><code>Waste</code>, fixed on the Nimbus deck</td>
+<td>one well, <code>A1</code></td>
+<td>1 L</td>
+<td>cannot be moved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tubes">Tubes</h3>
+<table>
+<thead>
+<tr>
+<th>Tube names</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alanine</code>, <code>arginine</code>, <code>aspartic_acid</code>, <code>asparagine</code>, <code>glutamic_acid</code>, <code>glutamine</code>, <code>glycine</code>, <code>histidine</code>, <code>isoleucine</code>, <code>leucine</code>, <code>lysine</code>, <code>methionine</code>, <code>phenylalanine</code>, <code>proline</code>, <code>serine</code>, <code>threonine</code>, <code>tryptophan</code>, <code>tyrosine</code>, <code>valine</code>, <code>cysteine</code></td>
+<td>One amino acid each in water, at 50× its concentration in CDM</td>
+</tr>
+<tr>
+<td><code>Glucose</code></td>
+<td>Glucose in water at 50× CDM (500 g/L)</td>
+</tr>
+<tr>
+<td><code>CDMBase1</code>, <code>CDMBase2</code>, <code>CDMBase3</code>, <code>CDMBase4</code></td>
+<td>2× CDM base: every CDM component except the 20 amino acids and glucose</td>
+</tr>
+<tr>
+<td><code>CDM</code></td>
+<td>Complete CDM at 1×</td>
+</tr>
+<tr>
+<td><code>Water1</code>, <code>Water2</code>, <code>Water3</code>, <code>Water4</code></td>
+<td>Sterile water</td>
+</tr>
+<tr>
+<td><code>SGU_A2</code></td>
+<td><em>S. gulonis</em> A2 in PBS (phosphate-buffered saline) at OD 1.0</td>
+</tr>
+</tbody>
+</table>
+<p>The tube racks hold 24 tubes, so at most 24 of the 31 tubes can be on the Nimbus at once.</p>
+<h3 id="chemically-defined-medium-cdm">Chemically defined medium (CDM)</h3>
+<p>The table lists the concentrations in 1× CDM. The 2× base contains all components except the amino acids and glucose at twice these concentrations. The single-component tubes are 50× stocks.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>1× CDM (mg/L)</th>
+<th>Stock tube</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-glucose</td>
+<td>10,000</td>
+<td><code>Glucose</code>, 500 g/L</td>
+</tr>
+<tr>
+<td>L-cysteine hydrochloride monohydrate</td>
+<td>650</td>
+<td><code>cysteine</code>, 32.5 g/L</td>
+</tr>
+<tr>
+<td>L-threonine</td>
+<td>200</td>
+<td><code>threonine</code>, 10 g/L</td>
+</tr>
+<tr>
+<td>Each other amino acid: DL-alanine, L-arginine, L-aspartic acid, L-asparagine, L-glutamic acid, L-glutamine, glycine, L-histidine, L-isoleucine, L-leucine, L-lysine monohydrochloride, L-methionine, L-phenylalanine, L-proline, L-serine, L-tryptophan, L-tyrosine, L-valine</td>
+<td>100 each</td>
+<td>named tube, 5 g/L each</td>
+</tr>
+<tr>
+<td>Sodium phosphate dibasic heptahydrate</td>
+<td>13,900</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Sodium acetate trihydrate</td>
+<td>4,500</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Sodium phosphate monobasic monohydrate</td>
+<td>3,160</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Sodium bicarbonate</td>
+<td>2,500</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Potassium phosphate monobasic</td>
+<td>1,000</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Magnesium sulfate heptahydrate</td>
+<td>700</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Potassium phosphate dibasic</td>
+<td>200</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Adenine, guanine hydrochloride, uracil</td>
+<td>25 each</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Calcium chloride dihydrate</td>
+<td>6.76</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Manganese sulfate monohydrate</td>
+<td>5</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Iron(II) sulfate</td>
+<td>5</td>
+<td>base</td>
+</tr>
+<tr>
+<td>β-NADPH</td>
+<td>2.5</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Calcium pantothenate</td>
+<td>2</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Riboflavin</td>
+<td>2</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Iron(III) nitrate</td>
+<td>1</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Niacinamide, pyridoxal hydrochloride, pyridoxamine dihydrochloride, thiamine hydrochloride</td>
+<td>1 each</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Folic acid</td>
+<td>0.8</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Biotin</td>
+<td>0.2</td>
+<td>base</td>
+</tr>
+<tr>
+<td>4-Aminobenzoic acid</td>
+<td>0.2</td>
+<td>base</td>
+</tr>
+<tr>
+<td>Vitamin B12</td>
+<td>0.1</td>
+<td>base</td>
+</tr>
+</tbody>
+</table>
+<p>200 µL of complete 1× CDM can be made from 100 µL of 2× base, 4 µL of glucose, 4 µL of each of the 20 amino acids, and 16 µL of water or other additions.</p>
+<h2 id="physical-constraints">Physical constraints</h2>
+<p>The simulator enforces the physical limits of the real lab. Operations that violate these limits are rejected during validation.</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One plate per Nimbus plate slot</td>
+<td>Slot1–Slot4 each hold one plate, regular or deep-well.</td>
+</tr>
+<tr>
+<td>Rack slots hold racks</td>
+<td>Slot5–Slot8 contain Rack1–Rack4 and cannot hold plates.</td>
+</tr>
+<tr>
+<td>Tubes go in tube slots</td>
+<td>Tubes are placed in rack slots (Rack1–Rack4, Slot1–Slot6), one per slot. Tubes cannot be placed in plate slots, and plates cannot be placed in tube slots.</td>
+</tr>
+<tr>
+<td>Labware in slots</td>
+<td>Labware on the Nimbus must be in a slot.</td>
+</tr>
+<tr>
+<td>96-well plates only in the PlateHotel and Epoch2</td>
+<td>Each PlateHotel slot and the Epoch2 slot holds one standard 96-well plate. Deep-well plates can only be on the Bench or the Nimbus deck.</td>
+</tr>
+<tr>
+<td>Fixed hardware</td>
+<td>Deck slots, racks, and the Waste bottle cannot be moved.</td>
+</tr>
+<tr>
+<td>Moving labware</td>
+<td>Only plates and tubes can be moved, not individual wells.</td>
+</tr>
+<tr>
+<td>Reach</td>
+<td>Both locations in a move must be within the reach of the instrument (see Equipment).</td>
+</tr>
+<tr>
+<td>Pipetting range</td>
+<td>Each transfer is 2–1000 µL. Larger volumes require multiple transfers.</td>
+</tr>
+<tr>
+<td>Well capacity</td>
+<td>The recipient cannot be overfilled (400 µL per well, 2 mL per deep well, 50 mL per tube, 1 L for Waste).</td>
+</tr>
+<tr>
+<td>Donor volume</td>
+<td>The donor must contain at least the volume transferred.</td>
+</tr>
+<tr>
+<td>Reading</td>
+<td>Plates are read in <code>Epoch2/Slot1</code>.</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>Only the PlateHotel temperature can be set.</td>
+</tr>
+<tr>
+<td>Sequential operations</td>
+<td>Operations run one at a time. Each operation starts when the previous operation finishes.</td>
+</tr>
+</tbody>
+</table>
+<p>Wells are always well mixed, so a transfer takes a proportional amount of every component in the donor, including cells. Operations are checked in order against the state left by the previous operations. For example, three 170 µL transfers into a 400 µL well will pass, pass, and fail.</p>
+<h2 id="protocol-format">Protocol format</h2>
+<p>A protocol is a JSON object with one key, <code>operations</code>, which contains a list of operations in the order they are run:</p>
+<pre><code class="language-json">{&quot;operations&quot;: [
+  {&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/Plate1&quot;, &quot;parent&quot;: &quot;Nimbus/Slot1&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;},
+  {&quot;op&quot;: &quot;pause&quot;, &quot;duration&quot;: 10, &quot;unit&quot;: &quot;minute&quot;}
+]}
+</code></pre>
+<p>Protocols can be written by hand or generated with a script in any language. We recommend generating protocols with a script.</p>
+<h3 id="paths">Paths</h3>
+<p>Each location is identified by its <strong>path</strong>, which lists the locations that contain it, separated by <code>/</code>. The path does not include <code>Lab</code>. Examples from the initial lab:</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bench/Plate1</code></td>
+<td>Plate1 on the Bench</td>
+</tr>
+<tr>
+<td><code>Bench/Plate1/A1</code></td>
+<td>Well A1 of Plate1</td>
+</tr>
+<tr>
+<td><code>Bench/CDM/A1</code></td>
+<td>The liquid in the CDM tube (a tube has one well, <code>A1</code>)</td>
+</tr>
+<tr>
+<td><code>Nimbus/Slot5/Rack1/Slot2</code></td>
+<td>Tube slot 2 of Rack1, which is in Nimbus Slot5</td>
+</tr>
+<tr>
+<td><code>Nimbus/Waste/A1</code></td>
+<td>The waste bottle</td>
+</tr>
+<tr>
+<td><code>PlateHotel/Drawer3/Slot2</code></td>
+<td>Slot 2 of PlateHotel Drawer3</td>
+</tr>
+<tr>
+<td><code>Epoch2/Slot1</code></td>
+<td>The plate reader slot</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paths change when labware is moved.</strong> After Plate1 is moved from the Bench to <code>Nimbus/Slot1</code>, its wells are <code>Nimbus/Slot1/Plate1/A1</code>, etc. After the PlateCrane moves the plate to the PlateHotel, the wells are <code>PlateHotel/Drawer1/Slot1/Plate1/A1</code>. Each operation must use the current path of the labware.</p>
+<h3 id="the-five-operations">The five operations</h3>
+<p>All fields shown are required unless noted. Any operation can include an optional <code>"comment"</code> field.</p>
+<p><strong><code>move</code></strong> moves a plate or tube (<code>child</code>) to a new location (<code>parent</code>). Use <code>Human</code>/<code>Hands</code> between the Bench and the Nimbus, and <code>PlateCrane</code>/<code>Gripper</code> between Nimbus Slot1–Slot4, the PlateHotel, and the Epoch2.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/SGU_A2&quot;, &quot;parent&quot;: &quot;Nimbus/Slot5/Rack1/Slot2&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;}
+</code></pre>
+<p><strong><code>transfer</code></strong> transfers liquid from a <code>donor</code> well to a <code>recipient</code> well. Both wells must be on the Nimbus deck.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;transfer&quot;, &quot;donor&quot;: &quot;Nimbus/Slot5/Rack1/Slot1/CDM/A1&quot;, &quot;recipient&quot;: &quot;Nimbus/Slot1/Plate1/A1&quot;, &quot;quantity&quot;: 196, &quot;unit&quot;: &quot;µL&quot;, &quot;instrument&quot;: &quot;Nimbus&quot;, &quot;head&quot;: &quot;SingleChannel&quot;}
+</code></pre>
+<p><strong><code>set_attribute</code></strong> sets the PlateHotel temperature. Plates in the PlateHotel are at the new temperature.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;set_attribute&quot;, &quot;location&quot;: &quot;PlateHotel&quot;, &quot;attribute&quot;: &quot;Temperature&quot;, &quot;value&quot;: 37, &quot;unit&quot;: &quot;°C&quot;, &quot;instrument&quot;: &quot;PlateHotel&quot;}
+</code></pre>
+<p><strong><code>read</code></strong> measures the absorbance (OD) of every well of the plate in the Epoch2. The <code>kind</code> field is optional; <code>Absorbance</code> is the only kind available.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;read&quot;, &quot;location&quot;: &quot;Epoch2/Slot1/Plate1&quot;, &quot;kind&quot;: &quot;Absorbance&quot;, &quot;instrument&quot;: &quot;Epoch2&quot;}
+</code></pre>
+<p><strong><code>pause</code></strong> waits for a fixed time. Plates remain in their current locations.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;pause&quot;, &quot;duration&quot;: 30, &quot;unit&quot;: &quot;minute&quot;}
+</code></pre>
+<h3 id="units">Units</h3>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Units accepted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volume</td>
+<td><code>µL</code>, <code>uL</code>, <code>ul</code>, <code>mL</code>, <code>ml</code></td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td><code>°C</code>, <code>C</code>, <code>degC</code></td>
+</tr>
+<tr>
+<td>Time</td>
+<td><code>s</code>, <code>min</code>, <code>minute</code>, <code>h</code>, <code>hr</code></td>
+</tr>
+</tbody>
+</table>
+<p>Alternative spellings are converted to <code>µL</code>, <code>°C</code>, <code>minute</code>, and <code>hr</code> in the results timeline.</p>
+<h3 id="timing">Timing</h3>
+<p>Operations run sequentially in the order listed. The duration of each operation is set by the instrument, and operations cannot be given start times. Use <code>pause</code> to wait, e.g. a read followed by a 30-minute pause and another read. The time between reads includes the pause, the moves, and the read. The results timeline lists the start and finish time of every operation, which can be used to adjust pauses.</p>
+<h2 id="submitting-protocols">Submitting protocols</h2>
+<p>Each student has a shared folder named with their student ID. The folder contains three subfolders:</p>
+<pre><code>&lt;your student ID&gt;/
+├── test/       validate a protocol      (results returned immediately)
+├── run/        run a protocol           (results returned after a delay)
+└── results/    results are returned here
+</code></pre>
+<ul>
+<li><strong>Submission.</strong> Save the protocol as a <code>.json</code> file and copy it to <code>test/</code> or <code>run/</code>. The file is removed from the folder when the server receives it.</li>
+<li><strong>Tests.</strong> Protocols in <code>test/</code> are validated but not run. The results file <code>&lt;name&gt;_&lt;date-time&gt;.test.json</code> contains the validation report and the timeline, but no reads. There is no limit on tests.</li>
+<li><strong>Runs.</strong> Protocols in <code>run/</code> are simulated. A file <code>&lt;name&gt;_&lt;date-time&gt;.pending.json</code> is returned immediately with the time the results will be released. At that time it is replaced by <code>&lt;name&gt;_&lt;date-time&gt;.results.json</code>, which includes the reads. Invalid protocols are returned immediately.</li>
+<li><strong>Run queue.</strong> Each student can have one run in progress. Additional runs are queued, and their pending files list the later release time.</li>
+</ul>
+<h2 id="results">Results</h2>
+<p>Each run returns one results file, which contains one record per well per read. Test results have the same format without <code>reads</code>. Files that cannot be parsed return <code>status</code> <code>"error"</code> and a <code>message</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mode</code>, <code>submission</code>, <code>received</code></td>
+<td><code>test</code> or <code>run</code>, the submitted file name, and the time it was received</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>"ok"</code> if the protocol ran; <code>"invalid"</code> if the protocol failed validation and was not run; <code>"failed"</code> if an operation could not be completed during the run</td>
+</tr>
+<tr>
+<td><code>validation</code></td>
+<td>Validation errors, each with the operation <code>index</code>, a <code>rule</code>, and a <code>message</code>. Empty for valid protocols.</td>
+</tr>
+<tr>
+<td><code>operations</code></td>
+<td>The timeline: one entry per operation, with its <code>index</code>, the <code>requested</code> operation, and its start and finish times (<code>start_s</code> and <code>finish_s</code> in seconds from the start of the run, and <code>start_time</code> as a clock time)</td>
+</tr>
+<tr>
+<td><code>duration_min</code></td>
+<td>Total run time in minutes</td>
+</tr>
+<tr>
+<td><code>reads</code></td>
+<td>All measurements (see below)</td>
+</tr>
+<tr>
+<td><code>failed_op</code></td>
+<td>The <code>index</code> of the operation that failed (only when <code>status</code> is <code>"failed"</code>). The run stops at this operation, and all reads before it are returned.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reads">Reads</h3>
+<p>Each <code>read</code> operation measures all 96 wells and returns 96 records, including empty wells. The record below is from the first read in the example protocol:</p>
+<pre><code class="language-json">{
+  &quot;op_index&quot;: 11,
+  &quot;time_min&quot;: 10.633333333333333,
+  &quot;sim_time&quot;: &quot;2026-01-05T09:10:38&quot;,
+  &quot;instrument&quot;: &quot;Epoch2&quot;,
+  &quot;location&quot;: &quot;Epoch2/Slot1/Plate1&quot;,
+  &quot;well&quot;: &quot;Epoch2/Slot1/Plate1/A1&quot;,
+  &quot;kind&quot;: &quot;Absorbance&quot;,
+  &quot;value&quot;: 0.060004737151923004,
+  &quot;unit&quot;: &quot;OD&quot;,
+  &quot;environment&quot;: {&quot;Temperature&quot;: {&quot;value&quot;: 22.0, &quot;unit&quot;: &quot;°C&quot;}}
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>op_index</code></td>
+<td>Index of the read operation</td>
+</tr>
+<tr>
+<td><code>time_min</code>, <code>sim_time</code></td>
+<td>Time of the read, in minutes since the start of the run and as a clock time</td>
+</tr>
+<tr>
+<td><code>location</code>, <code>well</code></td>
+<td>Paths of the plate and well at the time of the read</td>
+</tr>
+<tr>
+<td><code>kind</code>, <code>value</code>, <code>unit</code></td>
+<td>The measurement (absorbance, in OD)</td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td>Conditions in the well during the read</td>
+</tr>
+</tbody>
+</table>
+<p>Plates are read in the Epoch2 at room temperature, so <code>environment</code> shows 22 °C even for plates that are incubated at 37 °C between reads.</p>
+<p>The well path changes as the plate moves, but the well name (e.g. <code>A1</code>) does not. Use the well name to match reads over time.</p>
+<h2 id="example-growth-curve-in-cdm">Example: growth curve in CDM</h2>
+<p>This protocol grows <em>S. gulonis</em> A2 in complete CDM in well A1 of Plate1, with an uninoculated control in A2. The plate is read approximately every 30 minutes for 12 hours. The protocol has 108 operations in six steps:</p>
+<pre><code> 1  Warm the PlateHotel to 37 °C                         1 set_attribute
+           │
+           ▼
+ 2  Bring CDM, cells, water and Plate1 to the Nimbus     4 moves
+           │
+           ▼
+ 3  Fill A1 with CDM + cells, A2 with CDM + water        4 transfers
+           │
+           ▼
+ 4  Initial read; move plate to the PlateHotel           move, read, move
+           │
+           ▼
+ 5  Pause 30 min, read, return  ◀──┐                   pause, move, read, move
+           │               └────────┘ 24 times
+           ▼
+ 6  Analyze A1 and A2                                    25 reads of 96 wells
+</code></pre>
+<p><strong>Step 1. Set the PlateHotel to 37 °C.</strong> The temperature is set first so the PlateHotel is at 37 °C when the plate arrives.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;set_attribute&quot;, &quot;location&quot;: &quot;PlateHotel&quot;, &quot;attribute&quot;: &quot;Temperature&quot;, &quot;value&quot;: 37, &quot;unit&quot;: &quot;°C&quot;, &quot;instrument&quot;: &quot;PlateHotel&quot;}
+</code></pre>
+<p><strong>Step 2. Move the tubes and plate to the Nimbus.</strong> The Human moves the CDM, cell, and water tubes to the first three slots of Rack1, and Plate1 to Slot1.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/CDM&quot;, &quot;parent&quot;: &quot;Nimbus/Slot5/Rack1/Slot1&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;},
+{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/SGU_A2&quot;, &quot;parent&quot;: &quot;Nimbus/Slot5/Rack1/Slot2&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;},
+{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/Water1&quot;, &quot;parent&quot;: &quot;Nimbus/Slot5/Rack1/Slot3&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;},
+{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/Plate1&quot;, &quot;parent&quot;: &quot;Nimbus/Slot1&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;}
+</code></pre>
+<p><strong>Step 3. Fill the wells.</strong> Each well receives 196 µL of CDM. A1 receives 4 µL of cells (a 50-fold dilution of OD 1.0, for a starting OD of 0.02), and the control A2 receives 4 µL of water. Both wells contain 200 µL. The paths use the new locations of the tubes and plate.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;transfer&quot;, &quot;donor&quot;: &quot;Nimbus/Slot5/Rack1/Slot1/CDM/A1&quot;, &quot;recipient&quot;: &quot;Nimbus/Slot1/Plate1/A1&quot;, &quot;quantity&quot;: 196, &quot;unit&quot;: &quot;µL&quot;, &quot;instrument&quot;: &quot;Nimbus&quot;, &quot;head&quot;: &quot;SingleChannel&quot;},
+{&quot;op&quot;: &quot;transfer&quot;, &quot;donor&quot;: &quot;Nimbus/Slot5/Rack1/Slot2/SGU_A2/A1&quot;, &quot;recipient&quot;: &quot;Nimbus/Slot1/Plate1/A1&quot;, &quot;quantity&quot;: 4, &quot;unit&quot;: &quot;µL&quot;, &quot;instrument&quot;: &quot;Nimbus&quot;, &quot;head&quot;: &quot;SingleChannel&quot;},
+{&quot;op&quot;: &quot;transfer&quot;, &quot;donor&quot;: &quot;Nimbus/Slot5/Rack1/Slot1/CDM/A1&quot;, &quot;recipient&quot;: &quot;Nimbus/Slot1/Plate1/A2&quot;, &quot;quantity&quot;: 196, &quot;unit&quot;: &quot;µL&quot;, &quot;instrument&quot;: &quot;Nimbus&quot;, &quot;head&quot;: &quot;SingleChannel&quot;},
+{&quot;op&quot;: &quot;transfer&quot;, &quot;donor&quot;: &quot;Nimbus/Slot5/Rack1/Slot3/Water1/A1&quot;, &quot;recipient&quot;: &quot;Nimbus/Slot1/Plate1/A2&quot;, &quot;quantity&quot;: 4, &quot;unit&quot;: &quot;µL&quot;, &quot;instrument&quot;: &quot;Nimbus&quot;, &quot;head&quot;: &quot;SingleChannel&quot;}
+</code></pre>
+<p><strong>Step 4. Initial read.</strong> The PlateCrane moves the plate to the Epoch2, the plate is read, and the PlateCrane moves the plate to the PlateHotel.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Nimbus/Slot1/Plate1&quot;, &quot;parent&quot;: &quot;Epoch2/Slot1&quot;, &quot;instrument&quot;: &quot;PlateCrane&quot;, &quot;head&quot;: &quot;Gripper&quot;},
+{&quot;op&quot;: &quot;read&quot;, &quot;location&quot;: &quot;Epoch2/Slot1/Plate1&quot;, &quot;kind&quot;: &quot;Absorbance&quot;, &quot;instrument&quot;: &quot;Epoch2&quot;},
+{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Epoch2/Slot1/Plate1&quot;, &quot;parent&quot;: &quot;PlateHotel/Drawer1/Slot1&quot;, &quot;instrument&quot;: &quot;PlateCrane&quot;, &quot;head&quot;: &quot;Gripper&quot;}
+</code></pre>
+<p><strong>Step 5. Incubate and read (24 cycles).</strong> Each cycle pauses for 30 minutes, then moves the plate to the Epoch2, reads it, and returns it to the PlateHotel. Reads are slightly more than 30 minutes apart because the moves and read also take time.</p>
+<pre><code class="language-json">{&quot;op&quot;: &quot;pause&quot;, &quot;duration&quot;: 30, &quot;unit&quot;: &quot;minute&quot;},
+{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;PlateHotel/Drawer1/Slot1/Plate1&quot;, &quot;parent&quot;: &quot;Epoch2/Slot1&quot;, &quot;instrument&quot;: &quot;PlateCrane&quot;, &quot;head&quot;: &quot;Gripper&quot;},
+{&quot;op&quot;: &quot;read&quot;, &quot;location&quot;: &quot;Epoch2/Slot1/Plate1&quot;, &quot;kind&quot;: &quot;Absorbance&quot;, &quot;instrument&quot;: &quot;Epoch2&quot;},
+{&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Epoch2/Slot1/Plate1&quot;, &quot;parent&quot;: &quot;PlateHotel/Drawer1/Slot1&quot;, &quot;instrument&quot;: &quot;PlateCrane&quot;, &quot;head&quot;: &quot;Gripper&quot;}
+</code></pre>
+<p>Repeated operations are easiest to generate with a script. This Python script writes the complete protocol:</p>
+<pre><code class="language-python">import json
+
+rack, plate = &quot;Nimbus/Slot5/Rack1&quot;, &quot;Nimbus/Slot1/Plate1&quot;
+hotel, reader = &quot;PlateHotel/Drawer1/Slot1&quot;, &quot;Epoch2/Slot1&quot;
+
+def move(child, parent, instrument, head):
+    return {&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: child, &quot;parent&quot;: parent, &quot;instrument&quot;: instrument, &quot;head&quot;: head}
+
+def transfer(donor, recipient, ul):
+    return {&quot;op&quot;: &quot;transfer&quot;, &quot;donor&quot;: donor, &quot;recipient&quot;: recipient, &quot;quantity&quot;: ul,
+            &quot;unit&quot;: &quot;µL&quot;, &quot;instrument&quot;: &quot;Nimbus&quot;, &quot;head&quot;: &quot;SingleChannel&quot;}
+
+def read():
+    return {&quot;op&quot;: &quot;read&quot;, &quot;location&quot;: f&quot;{reader}/Plate1&quot;, &quot;kind&quot;: &quot;Absorbance&quot;, &quot;instrument&quot;: &quot;Epoch2&quot;}
+
+ops = [{&quot;op&quot;: &quot;set_attribute&quot;, &quot;location&quot;: &quot;PlateHotel&quot;, &quot;attribute&quot;: &quot;Temperature&quot;,
+        &quot;value&quot;: 37, &quot;unit&quot;: &quot;°C&quot;, &quot;instrument&quot;: &quot;PlateHotel&quot;}]
+for slot, tube in enumerate([&quot;CDM&quot;, &quot;SGU_A2&quot;, &quot;Water1&quot;], start=1):
+    ops.append(move(f&quot;Bench/{tube}&quot;, f&quot;{rack}/Slot{slot}&quot;, &quot;Human&quot;, &quot;Hands&quot;))
+ops.append(move(&quot;Bench/Plate1&quot;, &quot;Nimbus/Slot1&quot;, &quot;Human&quot;, &quot;Hands&quot;))
+ops += [transfer(f&quot;{rack}/Slot1/CDM/A1&quot;, f&quot;{plate}/A1&quot;, 196),
+        transfer(f&quot;{rack}/Slot2/SGU_A2/A1&quot;, f&quot;{plate}/A1&quot;, 4),
+        transfer(f&quot;{rack}/Slot1/CDM/A1&quot;, f&quot;{plate}/A2&quot;, 196),
+        transfer(f&quot;{rack}/Slot3/Water1/A1&quot;, f&quot;{plate}/A2&quot;, 4)]
+ops += [move(plate, reader, &quot;PlateCrane&quot;, &quot;Gripper&quot;), read(),
+        move(f&quot;{reader}/Plate1&quot;, hotel, &quot;PlateCrane&quot;, &quot;Gripper&quot;)]
+for _ in range(24):
+    ops += [{&quot;op&quot;: &quot;pause&quot;, &quot;duration&quot;: 30, &quot;unit&quot;: &quot;minute&quot;},
+            move(f&quot;{hotel}/Plate1&quot;, reader, &quot;PlateCrane&quot;, &quot;Gripper&quot;), read(),
+            move(f&quot;{reader}/Plate1&quot;, hotel, &quot;PlateCrane&quot;, &quot;Gripper&quot;)]
+
+with open(&quot;growth_curve.json&quot;, &quot;w&quot;) as f:
+    json.dump({&quot;operations&quot;: ops}, f, indent=2, ensure_ascii=False)
+</code></pre>
+<p><strong>Step 6. Analyze the results.</strong> The run returns 25 plate reads, or 2,400 records (96 per read). The plot shows wells A1 and A2 against <code>time_min</code>:</p>
+<p><img alt="Absorbance of wells A1 and A2 over the 13 hours of the worked example" src="images/example_growth_curve.png" /></p>
+<p>The inoculated well grows from OD 0.06 to a maximum of about 1.15. The uninoculated control stays at OD 0.04, the same as an empty well. Growth should always be compared to an uninoculated control.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Errors are reported at two levels. Files that are not valid protocols are rejected with a message that identifies the operation, e.g. an unknown <code>op</code>, a misspelled, extra, or missing field, or a transfer quantity that is not a volume. Valid files are then checked operation by operation, and all errors are listed in <code>validation</code> with one of the following rules:</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unknown_location</code></td>
+<td>The path does not exist at that point in the protocol</td>
+<td>Check spelling and capitalization; use the current path after a move</td>
+</tr>
+<tr>
+<td><code>unknown_instrument</code></td>
+<td>Unknown instrument name</td>
+<td>Use <code>Nimbus</code>, <code>Human</code>, <code>PlateCrane</code>, <code>PlateHotel</code> or <code>Epoch2</code></td>
+</tr>
+<tr>
+<td><code>unknown_head</code></td>
+<td>The instrument does not have that head</td>
+<td><code>Nimbus</code> → <code>SingleChannel</code>, <code>Human</code> → <code>Hands</code>, <code>PlateCrane</code> → <code>Gripper</code></td>
+</tr>
+<tr>
+<td><code>wrong_head_type</code></td>
+<td>Wrong head for the operation</td>
+<td>Transfers use the Nimbus; moves use the Human or the PlateCrane</td>
+</tr>
+<tr>
+<td><code>unreachable</code></td>
+<td>The instrument cannot reach a location</td>
+<td>See the Reach column under Equipment</td>
+</tr>
+<tr>
+<td><code>volume_out_of_range</code></td>
+<td>Transfer volume below 2 µL or above 1000 µL</td>
+<td>Split large transfers; dilute stocks for small volumes</td>
+</tr>
+<tr>
+<td><code>not_a_well</code></td>
+<td>A transfer specifies labware instead of a well</td>
+<td>Add the well, e.g. <code>/A1</code></td>
+</tr>
+<tr>
+<td><code>empty_donor</code></td>
+<td>The donor well is empty</td>
+<td>Fill the donor first</td>
+</tr>
+<tr>
+<td><code>not_movable</code></td>
+<td>A move specifies a well</td>
+<td>Move the plate or tube</td>
+</tr>
+<tr>
+<td><code>not_in_instrument</code></td>
+<td>The location is not in the instrument</td>
+<td>Read plates in <code>Epoch2/Slot1</code>; set the temperature on <code>PlateHotel</code></td>
+</tr>
+<tr>
+<td><code>not_actuatable</code></td>
+<td>The attribute cannot be set on that instrument</td>
+<td>Only <code>Temperature</code>, only on the PlateHotel</td>
+</tr>
+<tr>
+<td><code>unreadable_kind</code>, <code>unsupported_read</code></td>
+<td>Read kind other than absorbance</td>
+<td>Use <code>"kind": "Absorbance"</code> or leave <code>kind</code> out</td>
+</tr>
+<tr>
+<td><code>no_duration</code></td>
+<td>The instrument cannot perform the operation</td>
+<td>Use the instrument listed for that operation under Equipment</td>
+</tr>
+<tr>
+<td><code>chess_error</code></td>
+<td>A physical constraint was violated: the slot is occupied, the labware does not fit, the labware is fixed, or a well would overflow</td>
+<td>See the message and Physical constraints</td>
+</tr>
+</tbody>
+</table>
+<p>A run with status <code>"failed"</code> passed validation but could not complete an operation. The results include all reads before the failure, and <code>failed_op</code> gives the index of the failed operation.</p>
+<h3 id="example-error">Example error</h3>
+<p>The protocol below moves a 50 mL tube to a Nimbus plate slot:</p>
+<pre><code class="language-json">{&quot;operations&quot;: [
+  {&quot;op&quot;: &quot;move&quot;, &quot;child&quot;: &quot;Bench/CDM&quot;, &quot;parent&quot;: &quot;Nimbus/Slot1&quot;, &quot;instrument&quot;: &quot;Human&quot;, &quot;head&quot;: &quot;Hands&quot;}
+]}
+</code></pre>
+<p>Submitting it to <code>test/</code> returns:</p>
+<pre><code class="language-json">{
+  &quot;duration_min&quot;: 0.0,
+  &quot;epoch&quot;: &quot;2026-01-05T09:00:00&quot;,
+  &quot;lab&quot;: &quot;Lab&quot;,
+  &quot;mode&quot;: &quot;test&quot;,
+  &quot;operations&quot;: [],
+  &quot;received&quot;: &quot;2026-10-01T14:05:05&quot;,
+  &quot;status&quot;: &quot;invalid&quot;,
+  &quot;submission&quot;: &quot;tube.json&quot;,
+  &quot;validation&quot;: [
+    {
+      &quot;index&quot;: 1,
+      &quot;message&quot;: &quot;Occupancy Error: (2//1)\nmovement would overoccupy parent&quot;,
+      &quot;rule&quot;: &quot;chess_error&quot;
+    }
+  ]
+}
+</code></pre>
+<p>The status is <code>invalid</code>, so the protocol was not run and <code>operations</code> is empty. The error is in operation 1. The <code>chess_error</code> message means the tube does not fit in a plate slot. Tubes must be moved to a rack slot, e.g. <code>Nimbus/Slot5/Rack1/Slot1</code>.</p>
+<h3 id="checklist">Checklist</h3>
+<ul>
+<li>Generate protocols with a script.</li>
+<li>Keep track of the location of each plate and tube.</li>
+<li>Include uninoculated controls.</li>
+<li>Submit to <code>test/</code> and check the timeline before submitting to <code>run/</code>.</li>
+</ul>
+</div>
+
+<br>
+<div class="footer">
+<p>
+The Jensen Lab, Department of Biomedical Engineering, University of Michigan. All rights reserved.
+</p>
+</div>
+
+</body>
+</html>
